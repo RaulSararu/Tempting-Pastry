@@ -9,14 +9,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Signin from "./components/Signin/Signin";
 import Main from "./components/Main/Main";
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <Main />
         <Footer />
-      
+        
 
         <Routes>
           {/* <Route path="/" element={<Homepage />}></Route> */}
