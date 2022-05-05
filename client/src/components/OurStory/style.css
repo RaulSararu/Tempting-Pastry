@@ -1,0 +1,47 @@
+.story-container {
+  max-width: 100vw;
+  min-height: 60vh;
+  background-color: rgb(5, 15, 27);
+  display: flex;
+  /* position: relative; */
+}
+
+.first-img {
+  position: relative;
+  top: -35px;
+  margin-left: 10%;
+  overflow: hidden;
+  min-width: 15rem;
+  height: 22rem;
+}
+
+.imag1,
+.imag2 {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 2s;
+}
+
+.imag1:hover,
+.imag2:hover {
+  transform: scale(1.3);
+}
+
+.second-image {
+  position: relative;
+  top: 400px;
+  overflow: hidden;
+  min-width: 25rem;
+  height: 15rem;
+  margin-right: 10%;
+}
+
+.content {
+  text-align: center;
+  padding: 80px 50px;
+  color: beige;
+  min-width: 30rem;
+}
