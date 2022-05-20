@@ -18,10 +18,10 @@ export default function Main() {
             <p className='moto'>Sweets bring love and love is everything</p>
           </div>
         
-        <Homepage/>
+        {/* <Homepage/>
         <Products/>
         <OurStory/>
-        <FindUs/>
+        <FindUs/> */}
 
     </div>
   )
