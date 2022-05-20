@@ -7,7 +7,6 @@ import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
 import Signin from "./components/Signin/Signin";
 import Main from "./components/Main/Main";
-import Profile from "./components/Profile/Profile";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 
@@ -23,7 +22,6 @@ function App() {
           <Route path="/ourstory" element={<OurStory />}></Route>
           <Route path="/findus" element={<FindUs />}></Route>
           <Route path="/login" element={<Signin />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes> 
         <Footer />
