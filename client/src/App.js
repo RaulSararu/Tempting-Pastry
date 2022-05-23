@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <ContextProvider>
         <BrowserRouter>
-          <Navbar />
+          {/* <Navbar /> */}
           <Main />
           <Footer />
           <Routes>
