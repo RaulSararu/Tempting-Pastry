@@ -1,41 +1,15 @@
-import React, { useState } from 'react'
-import Cartpage from '../Cartpage/Cartpage'
-import OurStory from '../OurStory/OurStory'
-
-
-
-
-
-
-// import FindUs from '../FindUs/FindUs'
-// import Homepage from '../Homepage/Homepage'
-// import Modal from '../Modal/Modal'
-
-// import Products from '../Products/Products'
+import React, { useState } from "react";
+import OurStory from "../OurStory/OurStory";
 
 export default function Main() {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState([]);
 
-  const onAdd = () => {}
+  const onAdd = () => {};
 
-  const onRemove = ()=> {}
+  const onRemove = () => {};
   return (
     <div>
-        {/* <Homepage/>
-        <Products/> */}
-        <OurStory/>
-        
-  
-       
-
-
-    
-
-        {/* <FindUs/> */}
-        {/* <Modal cartItems={cartItems}/> */}
-        {/* <Cartpage/> */}
-   
-
-        </div>
-  )
+      <OurStory />
+    </div>
+  );
 }

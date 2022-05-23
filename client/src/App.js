@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Homepage from "./components/Homepage/Homepage";
 import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
@@ -21,7 +20,6 @@ function App() {
           <Main />
           <Footer />
           <Routes>
-            {/* <Route path="/" element={<Homepage />}></Route> */}
             <Route path="/products" element={<Products />} />
             <Route path="/ourstory" element={<OurStory />} />
             <Route path="/findus" element={<FindUs />} />
