@@ -1,0 +1,53 @@
+form {
+  /* background-color: rgb(196, 255, 235); */
+  padding: 5px;
+}
+
+/* form input {
+  margin: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+} */
+
+form input {
+  background-color: transparent;
+  margin-top: 25px;
+
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+
+form input:not(.name){
+    width: 100%;
+
+}
+
+.name {
+    display: inline-block;
+    margin: 0.5%;
+}
+
+ #firstName {
+  width: 49%;
+}
+
+ #lastName {
+  width: 49%;
+ 
+}
+
+
+.return-cart {
+    margin-top: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.return-cart p {
+    margin-top: 20px;
+     
+}

@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
-import { MDBBtn,
+import React, { useState } from "react";
+import {
+  MDBBtn,
   MDBModal,
   MDBModalDialog,
   MDBModalContent,
@@ -7,41 +8,84 @@ import { MDBBtn,
   MDBModalTitle,
   MDBModalBody,
   MDBModalFooter,
-} from 'mdb-react-ui-kit';
+} from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
+import { Button, Grid } from "@mui/material";
+import "./style.css"
 
-
-export default function Modal() {
+export default function Modal(props) {
+  const {cartItems, onAdd, onRemove} = props
 
   const [topRightModal, setTopRightModal] = useState(false);
 
   const toggleShow = () => setTopRightModal(!topRightModal);
   return (
     <div>
-     
-      
       <MDBBtn onClick={toggleShow}>Top right</MDBBtn>
 
       <MDBModal
-        animationDirection='right'
+        animationDirection="right"
         show={topRightModal}
-        tabIndex='-1'
+        tabIndex="-1"
         setShow={setTopRightModal}
       >
-        <MDBModalDialog position='top-right' side>
+        <MDBModalDialog position="top-right" side>
           <MDBModalContent>
-            <MDBModalHeader className='bg-info text-white'>
-              <MDBModalTitle>Product in the cart</MDBModalTitle>
+            <MDBModalHeader className="bg-info text-white">
+              <MDBModalTitle>CART</MDBModalTitle>
               <MDBBtn
-                color='none'
-                className='btn-close btn-close-white'
+                color="none"
+                className="btn-close btn-close-white"
                 onClick={toggleShow}
               ></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
+              <Grid container>
+                <Grid item xs={12}>
+                  {
+                    cartItems.length === 0 ? <div>Cart empty</div> : <p>not empty</p>
+                  }
+                  <div className="my-cart">
+                    <div className="item">
+                      <p>Item</p>
+                    </div>
+                    <div className="qty">
+                      <p>QTY</p>
+{/*                       
+                      <div className="box-qty">
+                        <button>-</button>
+                        <p>0</p>
+                        <button>+</button>
+                      </div> */}
+                    </div>
+                    <div className="price">
+                      <p>Price</p>
+                      {/* <p> $</p> */}
+                    </div>
+                  </div>
+                  {cartItems.map((item) => (
+                    <div key={item.id} className='row'>
+                      <div>{item.name}</div>
+                      <div className="box-qty">
+                        <button onClick={()=> onRemove(item)}>-</button>
+                        <p>{item.qty}</p>
+                        <button onClick={()=> onAdd(item)}>+</button>
+                   
+                      </div> 
+                      <div>
+
+                      <p>$ {item.price.toFixed(2)}</p>
+                      </div>
+
+                      
+                    </div>
+                  ))}
+                </Grid>
+                {/* <CartItem/> */}
+              </Grid>
               <div className='row'>
-                <div className='col-3 text-center'>
-                  <i className='fas fa-shopping-cart fa-4x text-info'></i>
-                </div>
+            
+              
 
                 <div className='col-9'>
                   <p>Do you need more time to make a purchase decision?</p>
@@ -50,15 +94,16 @@ export default function Modal() {
               </div>
             </MDBModalBody>
             <MDBModalFooter>
-              <MDBBtn color='info'>Go to the cart</MDBBtn>
-              <MDBBtn outline color='info' onClick={toggleShow}>
+              <Link to="/cart">
+                <Button variant="contained">Go to the cart</Button>
+              </Link>
+              <Button variant="outlined" onClick={toggleShow}>
                 Close
-              </MDBBtn>
+              </Button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
       </MDBModal>
-    
     </div>
-  )
+  );
 }
