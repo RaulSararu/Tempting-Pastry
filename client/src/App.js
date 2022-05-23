@@ -10,6 +10,7 @@ import ContextProvider from "./components/Context";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import Navbar from "./components/Navbar/Navbar";
 
 
 
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
       <ContextProvider>
         <BrowserRouter>
-          {/* <Navbar /> */}
+          <Navbar/>
           <Main />
           <Footer />
           <Routes>

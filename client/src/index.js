@@ -1,12 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
-import 'mdb-react-ui-kit/dist/css/mdb.min.css'
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import App from "./App";
+import ContextProvider from "./components/Context";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
+ReactDOM.render(
+  <ContextProvider>
     <App />
-  </React.StrictMode>
+  </ContextProvider>,
+
+  document.getElementById("root")
 );
