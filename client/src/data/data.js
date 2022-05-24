@@ -1,17 +1,19 @@
 const data = {
     breads: [
-        {
+        {   
+            id:"1",
             name:"Assorted 1LB Bread Bowl",
             slug:"",
             category:"breads",
-            image:"",
+            logo1: require("../assets/images/breads/assorted_1lb_breadbowl.png".default),
             price:20,
             countInStock:20,
             rating:4.5,
             numReviews:10,
             description:"",
         },
-        {
+        {   
+            id:"2",
             name:"Assorted 4x4 Ciabatta",
             slug:"",
             category:"breads",
@@ -22,7 +24,8 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
+        {   
+            id:"3",
             name:"Olive Parmesean Pumperknickle",
             slug:"",
             category:"breads",
@@ -33,7 +36,8 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
+        {   
+            id:"4",
             name:"Pretzel Rolls",
             slug:"",
             category:"breads",
@@ -44,7 +48,8 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
+        {   
+            id:"5",
             name:"Seven Grain Rosemary",
             slug:"",
             category:"breads",
@@ -57,8 +62,9 @@ const data = {
         }
     ],
     breakfast : [
-        {
-            name:"",
+        {   
+            id:"6",
+            name:"Apple Cheese Spinwheel",
             slug:"",
             category:"",
             image:"",
@@ -68,8 +74,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"7",
+            name:"Cheese Croissant",
             slug:"",
             category:"",
             image:"",
@@ -79,8 +86,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"8",
+            name:"Chocolate Croissant",
             slug:"",
             category:"",
             image:"",
@@ -90,8 +98,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"9",
+            name:"Raspberry Croissant",
             slug:"",
             category:"",
             image:"",
@@ -101,8 +110,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"10",
+            name:"White Chocolate Macadamia",
             slug:"",
             category:"",
             image:"",
@@ -114,8 +124,9 @@ const data = {
         }
     ],
     cakes: [
-        {
-            name:"",
+        {   
+            id:"11",
+            name:"Chocolate Mousse",
             slug:"",
             category:"",
             image:"",
@@ -125,8 +136,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"12",
+            name:"LA Cheese Cake",
             slug:"",
             category:"",
             image:"",
@@ -136,8 +148,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"13",
+            name:"Mango Mousse",
             slug:"",
             category:"",
             image:"",
@@ -147,8 +160,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"14",
+            name:"Pina Colada",
             slug:"",
             category:"",
             image:"",
@@ -158,8 +172,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"15",
+            name:"Red Velvet",
             slug:"",
             category:"",
             image:"",
@@ -169,8 +184,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"16",
+            name:"Tiramisu",
             slug:"",
             category:"",
             image:"",
@@ -182,8 +198,9 @@ const data = {
         }
     ],
     desserts: [
-        {
-            name:"",
+        {   
+            id:"17",
+            name:"Cannoli",
             slug:"",
             category:"",
             image:"",
@@ -193,8 +210,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"18",
+            name:"Cappuccino Mousse",
             slug:"",
             category:"",
             image:"",
@@ -204,8 +222,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"19",
+            name:"Caramel Flan",
             slug:"",
             category:"",
             image:"",
@@ -215,8 +234,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"20",
+            name:"Chocolate Eclair",
             slug:"",
             category:"",
             image:"",
@@ -226,8 +246,9 @@ const data = {
             numReviews:10,
             description:"",
         },
-        {
-            name:"",
+        {   
+            id:"21",
+            name:"Chocolate Grand Marnier",
             slug:"",
             category:"",
             image:"",

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { contextExample } from "../Context";
+import { contextExample } from "../Context/Context";
 
 export default function CartItem() {
   const { counter, setCounter } = useContext(contextExample);

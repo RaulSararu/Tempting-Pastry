@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import "./style.css";
-import { contextExample } from "../Context";
+import { contextExample } from "../Context/Context";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
