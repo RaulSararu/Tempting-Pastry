@@ -1,14 +1,23 @@
-import { createContext } from "react";
-import { useState } from "react";
+import React, {createContext, useEffect , useState} from 'react'; 
+import axios from 'axios'; 
 
-export const contextExample = createContext();
+export const myContext = createContext({});
+export default function Context(props) {
+    const [currentUser, setCurrentUser] = useState(""); 
+    const [userObject, setUserObject] = useState();
+    useEffect(() => {
+        axios.get("/getuser", { withCredentials: true }).then((res) => {
+            console.log(res); 
+            if (res.data) {
+                setUserObject(res.data); 
+            }
+        });
+    }, []);
 
-export default function ContextProvider({ children }) {
-  const [counter, setCounter] = useState(0);
-
+    
   return (
-    <contextExample.Provider value={{ counter, setCounter }}>
-      {children}
-    </contextExample.Provider>
-  );
-}
+    <myContext.Provider value={{userObject,currentUser, setCurrentUser}}> 
+        {props.children}
+    </myContext.Provider> 
+  )
+} 

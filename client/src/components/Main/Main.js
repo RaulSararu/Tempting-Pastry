@@ -1,10 +1,9 @@
 import React from 'react'
 import Products from '../Products/Products'
 import Video from "../../assets/video/cake.mp4"
-import "../Main/main.css"
-import Cartpage from '../Cartpage/Cartpage'
-import Modal from '../Modal/Modal'
 
+
+import "./main.css"
 
 export default function Main() {
   return (
