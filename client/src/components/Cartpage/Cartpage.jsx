@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import "./style.css";
-import { contextExample } from "../Context/Context";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 export default function Cartpage() {
-  const { counter } = useContext(contextExample);
+  // const { counter } = useContext(contextExample); 
 
   // const [counter, setCounter] = useState(0);
 
@@ -30,7 +29,7 @@ export default function Cartpage() {
           <hr />
 
           <p>
-            subtotal <span className="total-price">{counter} $</span>
+            subtotal <span className="total-price">$</span> 
           </p>
           <Link to="/checkout">
           <Button variant="contained">CHECKOUT</Button>

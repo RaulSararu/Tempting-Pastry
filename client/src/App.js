@@ -13,30 +13,61 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./components/Homepage/Homepage"
 import Main from "./components/Main/Main";
+import Login from "./components/LoginPage/Login"; 
+import Logout from "./components/Navbar/Logout"; 
+import Profile from "./components/Navbar/Profile"; 
+import Google from "./components/LoginPage/Google";
+import Navbar1 from "./components/Navbar/Navbar1";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import React, { useContext } from 'react'; 
+import { myContext } from "./components/Context"; 
 
+
+const theme = createTheme({  
+  typography: {
+      fontFamily: [ 
+        // 'Niconne',
+        'Courgette',
+        'cursive', 
+        "serif"
+  ].join(','),
+ 
+  }, 
+
+});
 
 
 function App() {
+
+  const userObject =useContext(myContext); 
+ 
+
   return (
     <div className="App">
-      <ContextProvider>
-        <BrowserRouter>
-          <Navbar/>
-          <Top />
-          <Main />
-          <Footer />
-          <Routes>
-            <Route path="/" element={<Homepage />} /> 
-            <Route path="/products" element={<Products />} />
-            <Route path="/ourstory" element={<OurStory />} />
-            <Route path="/findus" element={<FindUs />} />
-            <Route path="/login" element={<Signin />} />
-            <Route path="/cart" element={<Cartpage />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<PageNotFound />}/>
-          </Routes>
-        </BrowserRouter>
-      </ContextProvider>
+      <myContext>
+       <ThemeProvider theme={theme}> 
+      <BrowserRouter>
+        <Navbar1 /> 
+       
+
+        <Routes>
+          <Route path="/" element={<Homepage />} /> 
+          <Route path="/products" element={<Products/>}></Route>
+          <Route path="/ourstory" element={<OurStory/>}></Route>
+          <Route path="/findus" element={<FindUs/>}></Route>
+          <Route path="/login" element={<Login/>}></Route> 
+          <Route path="/profile" element={<Profile/>}></Route> 
+          <Route path="/logout" element={<Logout/>}></Route> 
+          <Route path="/google/:id" element={<Google/>}></Route> 
+          <Route path="/cart" element={<Cartpage />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />}/>
+        </Routes> 
+        
+        <Footer />  
+      </BrowserRouter>
+      </ThemeProvider> 
+      </myContext> 
     </div>
   );
 }

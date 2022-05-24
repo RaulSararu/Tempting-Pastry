@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { contextExample } from "../Context/Context";
 
 export default function CartItem() {
-  const { counter, setCounter } = useContext(contextExample);
+  // const { counter, setCounter } = useContext(contextExample);
   return (
     <div className="cart">
       <div className="item">
@@ -10,15 +9,15 @@ export default function CartItem() {
       </div>
       <div className="qty">
         <p>QTY</p>
-        <div className="box">
+        {/* <div className="box">
           <button onClick={() => setCounter(counter - 1)}>-</button>
           <p>{counter}</p>
-          <button onClick={() => setCounter(counter + 1)}>+</button>
-        </div>
-      </div>
+          <button onClick={() => setCounter(counter + 1)}>+</button> 
+        </div> */}
+      </div>  
       <div className="price">
         <p>Price</p>
-        <p>{counter * 10} $</p>
+        {/* <p>{counter * 10} $</p> */} 
       </div>
     </div>
   );

@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import App from "./App";
-import ContextProvider from "./components/Context";
+import Context from './components/Context'; 
+
 
 ReactDOM.render(
-  <ContextProvider>
-    <App />
-  </ContextProvider>,
-
-  document.getElementById("root")
-);
+  <Context> 
+  <App />
+  </Context>,
+    document.getElementById('root')
+  ); 
