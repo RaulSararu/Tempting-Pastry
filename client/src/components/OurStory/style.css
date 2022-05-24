@@ -1,0 +1,42 @@
+.story-container {
+  width: 100%;
+  min-height: 70vh;
+  background-color: rgb(5, 15, 27);
+  /* background-color: rgb(113, 171, 243); */
+
+
+}
+
+.first-img {
+  position: relative;
+  top: -30px;
+  overflow: hidden;
+  width: 14rem;
+  height: 20rem;
+}
+
+.imag1,
+.imag2 {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 2s;
+}
+
+.imag1:hover,
+.imag2:hover {
+  transform: scale(1.3);
+}
+
+.second-image {
+  position: relative;
+  top: 90%;
+  right: 90px;
+  overflow: hidden;
+  width: 25rem;
+  height: 15rem;
+
+}
+
