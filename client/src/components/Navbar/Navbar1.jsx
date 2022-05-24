@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import logo from "/home/user/Tempting-Pastry/client/src/assets/images/logo/logo.png";
+import logo from "../../assets/images/logo/logo.png"
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { Link } from "react-router-dom";
 import { myContext } from "../Context";
