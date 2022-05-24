@@ -1,0 +1,16 @@
+.pastries {
+    display: flex;
+    justify-content: space-between;
+    padding:0 70px;
+
+}
+
+a {
+    color: gray; 
+}
+
+a:hover {
+    color: black;
+    border-bottom: 1px solid black;
+
+}
