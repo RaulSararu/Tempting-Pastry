@@ -5,7 +5,7 @@ import React from 'react'
 import Video from "../../assets/video/cake.mp4"
 
 
-import "../Main/main.css"
+import "./main.css"
 
 export default function Main() {
   return (

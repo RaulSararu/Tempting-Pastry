@@ -16,7 +16,7 @@ import Cartpage from "./components/Cartpage/Cartpage";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound"; 
-import Homepage from "./components/Homepage" ;
+import Homepage from "./components/Homepage/Homepage" ;
 
 const theme = createTheme({  
   typography: {
