@@ -3,20 +3,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
+import Top from "./components/Top/Top";
+import Cartpage from "./components/Cartpage/Cartpage";
+import Context from "../src/components/Context";
+import Checkout from "./components/Checkout/Checkout";
+import OurStory from "./components/OurStory/OurStory";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+import Homepage from "./components/Homepage/Homepage"
 import Login from "./components/LoginPage/Login"; 
 import Logout from "./components/Navbar/Logout"; 
 import Profile from "./components/Navbar/Profile"; 
 import Google from "./components/LoginPage/Google";
-import Main from "./components/Main/Main";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
-import  Context  from "./components/Context"; 
-import Cartpage from "./components/Cartpage/Cartpage";
-import Checkout from "./components/Checkout/Checkout";
-import OurStory from "./components/OurStory/OurStory";
-import PageNotFound from "./components/PageNotFound/PageNotFound"; 
-import Homepage from "./components/Homepage/Homepage" ;
+import Main from "./components/Main/Main"
+
+
 
 const theme = createTheme({  
   typography: {
@@ -43,9 +46,8 @@ function App() {
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
         <Navbar1 /> 
+        <Top />
         <Main />
-        {/* <Footer />   */}
-
         <Routes>
           <Route path="/" element={<Homepage />} /> 
           <Route path="/products/:id" element={<Products/>}></Route>

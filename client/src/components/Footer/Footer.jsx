@@ -46,7 +46,7 @@ export default function Footer() {
                 <div className="footerLocationIcon"><LocationOnIcon /></div>
             </div>
           </div>
-          <button className="footerButton wrapper">
+          <button className="footerButton footerWrapper">
             <a className="footerA"
               target="_blank"
               href="https://www.google.com/maps/place/Hamburger+Str.+22,+22083+Hamburg/@53.5713153,10.0263494,17z/data=!4m5!3m4!1s0x47b18ecea6304ddb:0xcf39588eefd82a00!8m2!3d53.5716657!4d10.0294393?hl=de"
