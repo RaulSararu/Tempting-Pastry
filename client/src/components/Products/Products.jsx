@@ -1,38 +1,41 @@
 import { Grid ,Card, Typography, CardContent,CardActions,Button, Box } from "@mui/material";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, useParams } from "react-router-dom";
+import CardItem from "../Card/CardItem";
+
 import "./style.css";
 
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
+
 
 
 
 export default function Products() {
+
+
+  const { id } = useParams();
+  
+
+
+
+  const [active,setActive] = useState(0)
   return (
     <div className="products-container">
-      <Grid container>
+      <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
           <Grid item xs={4}>
             <div className="pastries">
-              <Link to="products/breads">
+              <Link to="products/breads" onClick={() => setActive(1)} style={{color:active === 1 && 'red'}}>
                 <p>Breads</p>
               </Link>
-              <Link to="products/breakfast-pastries">
+              <Link to="products/breakfast-pastries" onClick={() => setActive(2)} style={{color:active === 2 && 'red'}}>
               <p>Breakfast Pastries</p>
               </Link>
-              <Link to="products/desserts">
+              <Link to="products/desserts" onClick={() => setActive(3)} style={{color:active === 3 && 'red'}}>
               <p>Desserts</p>
               </Link>
-              <Link to="products/cakes">
+              <Link to="products/cakes" onClick={() => setActive(4)} style={{color:active === 4 && 'red'}}>
               <p>Cakes</p>
               </Link>
               <NavLink style={isActive => ({
@@ -44,34 +47,23 @@ export default function Products() {
           </Grid>
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
         </Grid>
-        <Grid item xs={12} sx={{backgroundColor:'orange'}} container>
+        <Grid item xs={12} sx={{backgroundColor:'orange'}}
+  
+  container>
           <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
-          <Grid item xs={6} align="center">
-
-          <Card sx={{ width: 200 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-
+          <Grid item xs={6}  sx={{padding:'20px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
+            <CardItem/>
           </Grid>
-          <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
+          <Grid item  xs={3}  sx={{backgroundColor:'pink'}} />
         </Grid>
       </Grid>
     </div>

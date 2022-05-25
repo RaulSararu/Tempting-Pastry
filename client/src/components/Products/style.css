@@ -1,12 +1,13 @@
 .pastries {
     display: flex;
     justify-content: space-between;
-    padding:0 70px;
+    padding:10px 70px;
 
 }
 
 a {
     color: gray; 
+    text-decoration: none;
 }
 
 a:hover {

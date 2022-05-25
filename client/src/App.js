@@ -11,7 +11,7 @@ import Main from "./components/Main/Main";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
-import { myContext } from "./components/Context"; 
+import  Context  from "./components/Context"; 
 import Cartpage from "./components/Cartpage/Cartpage";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
@@ -22,9 +22,9 @@ const theme = createTheme({
   typography: {
       fontFamily: [ 
         // 'Niconne',
-        'Courgette',
-        'cursive', 
-        "serif"
+        // 'Courgette',
+        // 'cursive', 
+        // "serif"
   ].join(','),
  
   }, 
@@ -34,20 +34,21 @@ const theme = createTheme({
 
 function App() {
 
-  const userObject =useContext(myContext); 
+  const userObject =useContext(Context); 
  
 
   return (
     <div className="App">
-      <myContext>
+      <Context>
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
         <Navbar1 /> 
-       
+        <Main />
+        {/* <Footer />   */}
 
         <Routes>
           <Route path="/" element={<Homepage />} /> 
-          <Route path="/products" element={<Products/>}></Route>
+          <Route path="/products/:id" element={<Products/>}></Route>
           <Route path="/ourstory" element={<OurStory/>}></Route>
           <Route path="/findus" element={<FindUs/>}></Route>
           <Route path="/login" element={<Login/>}></Route> 
@@ -58,11 +59,10 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
         </Routes> 
-        
-        <Footer />  
+      
       </BrowserRouter>
       </ThemeProvider> 
-      </myContext> 
+      </Context> 
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Video from "../../assets/video/cake.mp4"
 
 
 import "./main.css"
+import OurStory from '../OurStory/OurStory'
 
 export default function Main() {
   return (
@@ -18,6 +19,7 @@ export default function Main() {
          */}
  
         <Products/>
+        {/* <OurStory/> */}
   
         
        
