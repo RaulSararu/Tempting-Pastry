@@ -3,16 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
-import Signin from "./components/Signin/Signin";
 import Top from "./components/Top/Top";
 import Cartpage from "./components/Cartpage/Cartpage";
-import ContextProvider from "./components/Context/Context";
+import Context from "../src/components/Context";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./components/Homepage/Homepage"
-import Main from "./components/Main/Main";
 import Login from "./components/LoginPage/Login"; 
 import Logout from "./components/Navbar/Logout"; 
 import Profile from "./components/Navbar/Profile"; 
@@ -20,7 +17,8 @@ import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
-import { myContext } from "./components/Context"; 
+import Main from "./components/Main/Main"
+
 
 
 const theme = createTheme({  
@@ -39,17 +37,17 @@ const theme = createTheme({
 
 function App() {
 
-  const userObject =useContext(myContext); 
+  const userObject =useContext(Context); 
  
 
   return (
     <div className="App">
-      <myContext>
+      <Context>
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
         <Navbar1 /> 
-       
-
+        <Top />
+        <Main />
         <Routes>
           <Route path="/" element={<Homepage />} /> 
           <Route path="/products" element={<Products/>}></Route>
@@ -67,7 +65,7 @@ function App() {
         <Footer />  
       </BrowserRouter>
       </ThemeProvider> 
-      </myContext> 
+      </Context> 
     </div>
   );
 }
