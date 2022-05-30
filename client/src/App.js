@@ -28,9 +28,9 @@ const theme = createTheme({
   typography: {
       fontFamily: [ 
         // 'Niconne',
-        'Courgette',
-        'cursive', 
-        "serif"
+        // 'Courgette',
+        // 'cursive', 
+        // "serif"
   ].join(','),
  
   }, 
@@ -66,8 +66,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
         </Routes> 
-        
-        <Footer />  
+      
       </BrowserRouter>
       </ThemeProvider> 
       </Context> 

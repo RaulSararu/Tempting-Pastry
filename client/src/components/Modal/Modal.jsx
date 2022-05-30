@@ -42,28 +42,28 @@ export default function Modal(props) {
             <MDBModalBody>
               <Grid container>
                 <Grid item xs={12}>
-                  {
+                  {/* {
                     cartItems.length === 0 ? <div>Cart empty</div> : <p>not empty</p>
-                  }
+                  } */}
                   <div className="my-cart">
                     <div className="item">
                       <p>Item</p>
                     </div>
                     <div className="qty">
                       <p>QTY</p>
-{/*                       
+                      
                       <div className="box-qty">
                         <button>-</button>
                         <p>0</p>
                         <button>+</button>
-                      </div> */}
+                      </div>
                     </div>
                     <div className="price">
                       <p>Price</p>
-                      {/* <p> $</p> */}
+            
                     </div>
                   </div>
-                  {cartItems.map((item) => (
+                  {/* {cartItems.map((item) => (
                     <div key={item.id} className='row'>
                       <div>{item.name}</div>
                       <div className="box-qty">
@@ -79,9 +79,8 @@ export default function Modal(props) {
 
                       
                     </div>
-                  ))}
+                  ))} */}
                 </Grid>
-                {/* <CartItem/> */}
               </Grid>
               <div className='row'>
             
