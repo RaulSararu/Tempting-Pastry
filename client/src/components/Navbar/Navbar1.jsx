@@ -17,6 +17,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { Link } from "react-router-dom";
 import { myContext } from "../Context";
 
+
 const pages = ["Home", "Products", "Our Story", "Find Us"];
 
 const ResponsiveAppBar = () => {
@@ -36,6 +37,7 @@ const ResponsiveAppBar = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    
   };
 
   const handleCloseUserMenu = () => {
@@ -44,7 +46,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{ background: "#221B50", textColor: "#FFFBE6" }}
     >
       <Container maxWidth="xl">
@@ -60,8 +62,8 @@ const ResponsiveAppBar = () => {
                 md: "flex",
                 backgroundColor: "#fffbe6",
                 borderRadius: "50%",
-                height: "150px",
-                width: "150px",
+                height: "100px",
+                width: "100px",
                 marginTop: "15px",
                 marginBottom: "15px",
               },
@@ -71,9 +73,9 @@ const ResponsiveAppBar = () => {
               src={logo}
               alt=""
               style={{
-                marginTop: "1rem",
+                marginTop: "",
                 height: "100px",
-                marginLeft: "0.8em",
+                marginLeft: "",
               }}
             />
           </Typography>
@@ -150,26 +152,30 @@ const ResponsiveAppBar = () => {
             }}
           >
             {pages.map((page) => (
-              <Button
+              <Link
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{
+                style={{
                   my: 2,
                   display: "flex",
                   color: "#FFFBE6",
-                  fontSize: "2.2rem",
+                  fontSize: "1.8rem",
+                  marginLeft:"30px",
+                  textDecoration:"none",
                 }}
+                to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
+
               >
-                {page}
-              </Button>
+               {page}
+              </Link>
             ))}
           </Box>
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">
-            <ShoppingCartOutlinedIcon sx={{ fontSize: 50, color: "#fffbe6" }} />
+            <ShoppingCartOutlinedIcon sx={{ fontSize: 35, color: "#fffbe6" }} />
           </Box>
 
-          <Box sx={{ flexGrow: 0, marginLeft: "20px" }}>
+          <Box sx={{ flexGrow: 0, marginLeft: "30px" }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -211,7 +217,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
           <Box sx={{ marginLeft: "35px" }} variant="contained">
-            <ContactMailIcon sx={{ fontSize: 45, color: "#fffbe6" }} />
+            <ContactMailIcon sx={{ fontSize: 35, color: "#fffbe6" }} />
           </Box>
         </Toolbar>
       </Container>

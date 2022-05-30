@@ -18,6 +18,9 @@ import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
 import Main from "./components/Main/Main"
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
+
 
 
 
@@ -38,21 +41,23 @@ const theme = createTheme({
 function App() {
 
   const userObject =useContext(Context); 
- 
+
 
   return (
     <div className="App">
       <Context>
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
+      <ScrollToTop />
         <Navbar1 /> 
         <Top />
-        <Main />
+        <Main /> 
         <Routes>
+          <Route path="/home" element={<Homepage />} /> 
           <Route path="/" element={<Homepage />} /> 
           <Route path="/products" element={<Products/>}></Route>
-          <Route path="/ourstory" element={<OurStory/>}></Route>
-          <Route path="/findus" element={<FindUs/>}></Route>
+          <Route path="/our-story" element={<OurStory/>}></Route>
+          <Route path="/find-us" element={<FindUs/>}></Route>
           <Route path="/login" element={<Login/>}></Route> 
           <Route path="/profile" element={<Profile/>}></Route> 
           <Route path="/logout" element={<Logout/>}></Route> 
