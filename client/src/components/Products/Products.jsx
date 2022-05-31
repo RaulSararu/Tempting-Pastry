@@ -1,10 +1,11 @@
-import { Grid ,Card, Typography, CardContent,CardActions,Button, Box } from "@mui/material";
-import React, { useState } from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Grid } from "@mui/material";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { Link,  useParams } from "react-router-dom";
 import CardItem from "../Card/CardItem";
-
 import "./style.css";
-
+import data from "../../data/data";
+import { MyContext } from "../Context";
 
 
 
@@ -12,10 +13,22 @@ import "./style.css";
 
 export default function Products() {
 
+  const [cat,setCat] = useState("breads")
+  const {addToCart} = useContext(MyContext)
+
+
+
+  
+
+ 
 
   const { id } = useParams();
   
+  const handleClick = (param, filter) => {
+    setActive(param)
+    setCat(filter)
 
+  }
 
 
   const [active,setActive] = useState(0)
@@ -26,23 +39,18 @@ export default function Products() {
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
           <Grid item xs={4}>
             <div className="pastries">
-              <Link to="products/breads" onClick={() => setActive(1)} style={{color:active === 1 && 'red'}}>
+              <Link to="products/breads" onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>
                 <p>Breads</p>
               </Link>
-              <Link to="products/breakfast-pastries" onClick={() => setActive(2)} style={{color:active === 2 && 'red'}}>
+              <Link to="products/breakfast-pastries" onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>
               <p>Breakfast Pastries</p>
               </Link>
-              <Link to="products/desserts" onClick={() => setActive(3)} style={{color:active === 3 && 'red'}}>
+              <Link to="products/desserts" onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>
               <p>Desserts</p>
               </Link>
-              <Link to="products/cakes" onClick={() => setActive(4)} style={{color:active === 4 && 'red'}}>
+              <Link to="products/cakes" onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>
               <p>Cakes</p>
               </Link>
-              <NavLink style={isActive => ({
-    color: isActive ? "red" : "blue"
-  })} to="products/tra">
-                tra
-              </NavLink>
             </div>
           </Grid>
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
@@ -52,16 +60,11 @@ export default function Products() {
   container>
           <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
           <Grid item xs={6}  sx={{padding:'20px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
-            <CardItem/>
+
+            {
+              data[cat].map((item) => <CardItem item={item} key={item.id} cb={addToCart}/>)
+            }
+
           </Grid>
           <Grid item  xs={3}  sx={{backgroundColor:'pink'}} />
         </Grid>

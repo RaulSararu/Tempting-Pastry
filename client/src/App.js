@@ -5,7 +5,6 @@ import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
 import Top from "./components/Top/Top";
 import Cartpage from "./components/Cartpage/Cartpage";
-import Context from "../src/components/Context";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
@@ -18,6 +17,8 @@ import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
 import Main from "./components/Main/Main"
+import MyContextProvider from "../src/components/Context";
+
 
 
 
@@ -25,9 +26,9 @@ const theme = createTheme({
   typography: {
       fontFamily: [ 
         // 'Niconne',
-        // 'Courgette',
-        // 'cursive', 
-        // "serif"
+        'Courgette',
+        'cursive', 
+        "serif"
   ].join(','),
  
   }, 
@@ -37,12 +38,12 @@ const theme = createTheme({
 
 function App() {
 
-  const userObject =useContext(Context); 
+  // const userObject =useContext(Context); 
  
 
   return (
     <div className="App">
-      <Context>
+      <MyContextProvider>
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
         <Navbar1 /> 
@@ -61,10 +62,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
         </Routes> 
-      
       </BrowserRouter>
       </ThemeProvider> 
-      </Context> 
+      </MyContextProvider>
     </div>
   );
 }

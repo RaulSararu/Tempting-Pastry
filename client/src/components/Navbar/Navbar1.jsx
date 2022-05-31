@@ -1,4 +1,4 @@
-import * as React from "react";
+import {useEffect, useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,16 +15,26 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import logo from "../../assets/images/logo/logo.png"
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { Link } from "react-router-dom";
-import { myContext } from "../Context";
+import { MyContext } from "../Context";
+import{ useContext} from "react"
+
 
 const pages = ["Home", "Products", "Our Story", "Find Us"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {cart} = useContext(MyContext)
 
-  const { currentUser, setCurrentUser } = React.useContext(myContext);
-  const [isLogIn, setIsLogIn] = React.useState("Login");
+  useEffect(() =>{
+   
+
+  },[cart])
+
+
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const { currentUser, setCurrentUser } = useContext(MyContext);
+  const [isLogIn, setIsLogIn] = useState("Login");
   const settings = [isLogIn, "Profile"];
 
   const handleOpenNavMenu = (event) => {
@@ -41,6 +51,8 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  console.log("Navbar will render",cart)
 
   return (
     <AppBar
@@ -166,7 +178,10 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">
-            <ShoppingCartOutlinedIcon sx={{ fontSize: 50, color: "#fffbe6" }} />
+            <Button>
+            <ShoppingCartOutlinedIcon sx={{ fontSize: 50, color: "#fffbe6" }} />{cart.length}
+            </Button>
+            
           </Box>
 
           <Box sx={{ flexGrow: 0, marginLeft: "20px" }}>

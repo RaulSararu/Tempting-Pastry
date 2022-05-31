@@ -1,9 +1,10 @@
 import React, {useContext, useEffect} from 'react' 
 import { useNavigate } from 'react-router-dom';
-import { myContext } from '../Context'; 
+import { MyContext } from '../Context';
+
 export default function Logout() {
 
-  const {currentUser, setCurrentUser} =useContext(myContext) 
+  const {currentUser, setCurrentUser} = useContext(MyContext) 
   const navigate= useNavigate()
 
   useEffect(() => {

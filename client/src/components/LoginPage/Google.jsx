@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { myContext } from "../Context";
+import { MyContext } from "../Context";
 import { useNavigate } from "react-router";
 
 export default function Google() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(myContext);
+  const { currentUser, setCurrentUser } = useContext(MyContext);
 
 
   useEffect(() => {

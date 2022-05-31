@@ -13,8 +13,8 @@ import { Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
 import "./style.css"
 
-export default function Modal(props) {
-  const {cartItems, onAdd, onRemove} = props
+export default function Modal() {
+ 
 
   const [topRightModal, setTopRightModal] = useState(false);
 
@@ -28,11 +28,12 @@ export default function Modal(props) {
         show={topRightModal}
         tabIndex="-1"
         setShow={setTopRightModal}
+      
       >
-        <MDBModalDialog position="top-right" side>
+        <MDBModalDialog position="top-right" side >
           <MDBModalContent>
-            <MDBModalHeader className="bg-info text-white">
-              <MDBModalTitle>CART</MDBModalTitle>
+            <MDBModalHeader className="bg-info text-white bg-dark bg-gradient" >
+              <MDBModalTitle >CART</MDBModalTitle>
               <MDBBtn
                 color="none"
                 className="btn-close btn-close-white"

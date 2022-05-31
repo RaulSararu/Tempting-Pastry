@@ -5,13 +5,18 @@
 
 }
 
-a {
+.pastries a {
     color: gray; 
     text-decoration: none;
 }
 
-a:hover {
-    color: black;
+
+
+.pastries a:visited {
+    color: gray;
+}
+.pastries a:hover {
+    color: rgb(5, 5, 48);
   
 
 }
