@@ -1,0 +1,20 @@
+.navbarLinks {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.navbarList {
+    display: inline;
+    padding: 10px;
+    font-size: 1.5rem;
+    
+}
+
+.navbarA {
+    text-decoration: none;
+    color: inherit;
+}
+
+

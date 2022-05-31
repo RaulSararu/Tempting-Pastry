@@ -9,7 +9,7 @@ import "../Top/top.css"
 
 export default function Top() {
   return (
-    <div className='main'>
+    <div className='main' id="home">
       <div className='overlay'></div>
       <video src={Video} autoPlay loop muted/>
       
