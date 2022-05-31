@@ -14,10 +14,12 @@ import MenuItem from "@mui/material/MenuItem";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import logo from "../../assets/images/logo/logo.png"
 import ContactMailIcon from "@mui/icons-material/ContactMail";
-import { Link } from "react-router-dom";
 import { MyContext } from "../Context";
 import{ useContext} from "react"
 import Modal from "../Modal/Modal";
+/* import { Link } from "react-router-dom"; */
+import "./navbar.css";
+import { HashLink as Link } from "react-router-hash-link";
 
 
 const pages = ["Home", "Products", "Our Story", "Find Us"];
@@ -51,6 +53,7 @@ const ResponsiveAppBar = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    
   };
 
   const handleCloseUserMenu = () => {
@@ -61,7 +64,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{ background: "#221B50", textColor: "#FFFBE6" }}
     >
       <Container maxWidth="xl">
@@ -77,8 +80,8 @@ const ResponsiveAppBar = () => {
                 md: "flex",
                 backgroundColor: "#fffbe6",
                 borderRadius: "50%",
-                height: "150px",
-                width: "150px",
+                height: "100px",
+                width: "100px",
                 marginTop: "15px",
                 marginBottom: "15px",
               },
@@ -88,9 +91,9 @@ const ResponsiveAppBar = () => {
               src={logo}
               alt=""
               style={{
-                marginTop: "1rem",
+                marginTop: "",
                 height: "100px",
-                marginLeft: "0.8em",
+                marginLeft: "",
               }}
             />
           </Typography>
@@ -166,20 +169,30 @@ const ResponsiveAppBar = () => {
               display: { xs: "none", md: "flex", justifyContent: "center" },
             }}
           >
-            {pages.map((page) => (
-              <Button
+            {/* {pages.map((page) => (
+              <Link
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{
+                style={{
                   my: 2,
                   display: "flex",
                   color: "#FFFBE6",
-                  fontSize: "2.2rem",
+                  fontSize: "1.8rem",
+                  marginLeft:"30px",
+                  textDecoration:"none",
                 }}
+                to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
+
               >
-                {page}
-              </Button>
-            ))}
+               {page}
+              </Link>
+            ))} */}
+            <ul className="navbarLinks">
+              <li className="navbarList"><Link smooth to="#home" className="navbarA">Home</Link></li>
+              <li className="navbarList"><Link smooth to="#products" className="navbarA">Products</Link></li>
+              <li className="navbarList"><Link  smooth to="#our-story" className="navbarA">Our Story</Link></li>
+              <li className="navbarList"><Link smooth to="#find-us" className="navbarA">Find Us</Link></li>
+            </ul>
           </Box>
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">
@@ -190,7 +203,7 @@ const ResponsiveAppBar = () => {
             
           </Box>
 
-          <Box sx={{ flexGrow: 0, marginLeft: "20px" }}>
+          <Box sx={{ flexGrow: 0, marginLeft: "30px" }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -232,7 +245,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
           <Box sx={{ marginLeft: "35px" }} variant="contained">
-            <ContactMailIcon sx={{ fontSize: 45, color: "#fffbe6" }} />
+            <ContactMailIcon sx={{ fontSize: 35, color: "#fffbe6" }} />
           </Box>
         </Toolbar>
       </Container>
