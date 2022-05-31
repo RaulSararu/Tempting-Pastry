@@ -24,8 +24,6 @@ export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
   
   return (
     <div style={{color:"black"}}>
-      {/* <MDBBtn onClick={toggleShow}>Top right</MDBBtn> */}
-
       <MDBModal
         animationDirection="right"
         show={topRightModal}
@@ -46,10 +44,13 @@ export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
             <MDBModalBody>
               <Grid container>
                 <Grid item xs={12}>
-                  {/* {
-                    cartItems.length === 0 ? <div>Cart empty</div> : <p>not empty</p>
-                  } */}
-                  <div className="my-cart">
+                  {
+                    cart.length === 0 ? <div>CART EMPTY !!!</div> :
+                    
+                    
+                    
+                    
+                    <div className="my-cart">
                     <div className="item">
                       <p>Item</p>
                     </div>
@@ -57,27 +58,37 @@ export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
                       <p>QTY</p>
 
 
+                      <div className="price">
+                      <p>Price</p>
+            
+                    </div>
+
+
                       
-                            {
+                            {/* {
                               cart.map(item => <div>
                                 <img src={item.image} alt="" />
                                 <p>{item.name}</p>
                                 <p>{item.price}</p>
                               </div>)
-                            }
+                            } */}
                       
                       
-                      <div className="box-qty">
+                      {/* <div className="box-qty">
                         <button>-</button>
                         <p>0</p>
                         <button>+</button>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="price">
-                      <p>Price</p>
-            
-                    </div>
+                
                   </div>
+                    
+                    
+                    
+                    
+                
+                  }
+                  
                   {/* {cartItems.map((item) => (
                     <div key={item.id} className='row'>
                       <div>{item.name}</div>
