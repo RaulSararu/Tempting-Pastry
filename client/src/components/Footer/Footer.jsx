@@ -7,8 +7,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 export default function Footer() {
   return (
-    <div className="footerContainer">
-      <div className="footerMainDiv">
+    <div className="footerContainer" id="find-us">
+      <div className="footerMainDiv" >
         <div className="footerLeft">
           <h1 className="h1footer, footerTitle">Tempting Pastry</h1>
           <h4 className="h4footer">Open Hours</h4>

@@ -6,8 +6,8 @@ import { Grid } from "@mui/material";
 
 export default function OurStory() {
   return (
-    <div className="story-container">
-      <Grid container>
+    <div className="story-container" id="our-story">
+      <Grid container id="our-story">
         <Grid item xs={12} container>
           <Grid item xs={1.5} />
           <Grid item xs={2}>
