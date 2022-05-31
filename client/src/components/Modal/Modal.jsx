@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   MDBBtn,
   MDBModal,
@@ -12,16 +12,19 @@ import {
 import { Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
 import "./style.css"
+import { MyContext } from "../Context";
 
-export default function Modal() {
+export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
+
+  const {cart} = useContext(MyContext)
  
 
-  const [topRightModal, setTopRightModal] = useState(false);
 
-  const toggleShow = () => setTopRightModal(!topRightModal);
+
+  
   return (
-    <div>
-      <MDBBtn onClick={toggleShow}>Top right</MDBBtn>
+    <div style={{color:"black"}}>
+      {/* <MDBBtn onClick={toggleShow}>Top right</MDBBtn> */}
 
       <MDBModal
         animationDirection="right"
@@ -52,6 +55,17 @@ export default function Modal() {
                     </div>
                     <div className="qty">
                       <p>QTY</p>
+
+
+                      
+                            {
+                              cart.map(item => <div>
+                                <img src={item.image} alt="" />
+                                <p>{item.name}</p>
+                                <p>{item.price}</p>
+                              </div>)
+                            }
+                      
                       
                       <div className="box-qty">
                         <button>-</button>

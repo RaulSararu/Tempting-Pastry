@@ -17,6 +17,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Context";
 import{ useContext} from "react"
+import Modal from "../Modal/Modal";
 
 
 const pages = ["Home", "Products", "Our Story", "Find Us"];
@@ -28,6 +29,10 @@ const ResponsiveAppBar = () => {
    
 
   },[cart])
+
+  // toggle show for modal
+  const [topRightModal, setTopRightModal] = useState(false);
+  const toggleShow = () => setTopRightModal(!topRightModal);
 
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -178,9 +183,10 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">
-            <Button>
-            <ShoppingCartOutlinedIcon sx={{ fontSize: 50, color: "#fffbe6" }} />{cart.length}
-            </Button>
+         
+            <ShoppingCartOutlinedIcon onClick={toggleShow} sx={{ fontSize: 50, color: "#fffbe6" }} />{cart.length}
+       
+            <Modal toggleShow={toggleShow} topRightModal={topRightModal} setTopRightModal={setTopRightModal}/>
             
           </Box>
 
@@ -216,7 +222,7 @@ const ResponsiveAppBar = () => {
                       ? setIsLogIn("Logout")
                       : setIsLogIn("Login");
                   }}
-                >
+                > 
                   {" "}
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting} </Typography> 

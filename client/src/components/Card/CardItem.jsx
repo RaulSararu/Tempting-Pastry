@@ -34,7 +34,7 @@ export default function CardItem({item,cb}) {
           {/* 2 $ */}
         </Typography>
 
-        <Button className="button-custom" variant="text" size="small" sx={{ width: "100%", fontFamily:"sans-serif"}} onClick={() =>addToCart(item.id)}>
+        <Button className="button-custom" variant="text" size="small" sx={{ width: "100%", fontFamily:"sans-serif"}} onClick={() =>addToCart(item)}>
           ADD TO CART
         </Button>
       </Card>
