@@ -151,6 +151,8 @@ app.use("/users", require("./src/routes/register"));
     res.send(req.user);
  })  
 
+ app.use('/mail', require('./src/routes/mail')) 
+
  // Starting the server  
 app.listen("5000", ()=> {
     console.log("Server is running");
