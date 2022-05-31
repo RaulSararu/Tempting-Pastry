@@ -1,0 +1,22 @@
+.pastries {
+    display: flex;
+    justify-content: space-between;
+    padding:10px 70px;
+
+}
+
+.pastries a {
+    color: gray; 
+    text-decoration: none;
+}
+
+
+
+.pastries a:visited {
+    color: gray;
+}
+.pastries a:hover {
+    color: rgb(5, 5, 48);
+  
+
+}

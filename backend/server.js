@@ -52,7 +52,7 @@ app.use(passport.initialize());
 app.use(passport.session());  
 require('./src/config/passportConfig')(passport); 
 
-//Routes
+// Routes
 app.post("/login",(req,res, next)=> {
     passport.authenticate('local', (err, user, info) =>{
         if(err) throw err;
@@ -108,7 +108,7 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-// Twitter Strategy
+// // Twitter Strategy
 
 passport.use(new TwitterStrategy({
     consumerKey: `${process.env.TWITTER_CLIENT_ID}`,

@@ -4,7 +4,7 @@ import Google from "../../assets/images/login/google3.png";
 import Twitter from "../../assets/images/login/twitter2.jpg";
 import "./Login.css";
 import Axios from "axios";
-import { myContext } from "../Context";
+import { MyContext } from "../Context";
 import axios from "axios";
 
 function Auth() {
@@ -14,7 +14,7 @@ function Auth() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const { currentUser, setCurrentUser } = useContext(myContext);
+  const { currentUser, setCurrentUser } = useContext(MyContext);
 
   const navigate = useNavigate();
   // Register

@@ -1,8 +1,9 @@
 .story-container {
   width: 100%;
   min-height: 70vh;
-  background-color: rgb(5, 15, 27);
-  /* background-color: rgb(113, 171, 243); */
+  background-color: rgb(34, 27, 80);
+  color:rgb(255, 251, 230) ;
+
 
 
 }

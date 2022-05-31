@@ -3,11 +3,12 @@ import { Button, Grid, Paper, Typography } from "@mui/material";
 import "./style.css";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import { MyContext } from "../Context";
 
 export default function Cartpage() {
-  // const { counter } = useContext(contextExample); 
 
-  // const [counter, setCounter] = useState(0);
+  const {cart} = useContext(MyContext)
+
 
   return (
     <div /*className="cart-container" */>
@@ -19,6 +20,14 @@ export default function Cartpage() {
           </Typography>
 
           <CartItem />
+          {
+            cart.map(item => <div>
+              <img src={item.image} alt="" />
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+            </div>)
+          }
+          {}
         </Grid>
         <Grid item xs={3} style={{ backgroundColor: "blue" }}>
           <Typography pb={4} variant="h4">

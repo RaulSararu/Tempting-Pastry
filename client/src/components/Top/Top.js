@@ -5,11 +5,11 @@ import React from 'react'
 import Video from "../../assets/video/cake.mp4"
 
 
-import "./main.css"
+import "../Top/top.css"
 
-export default function Main() {
+export default function Top() {
   return (
-    <div className='main'>
+    <div className='main' id="home">
       <div className='overlay'></div>
       <video src={Video} autoPlay loop muted/>
       

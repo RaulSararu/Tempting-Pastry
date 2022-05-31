@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   MDBBtn,
   MDBModal,
@@ -12,27 +12,29 @@ import {
 import { Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
 import "./style.css"
+import { MyContext } from "../Context";
 
-export default function Modal(props) {
-  const {cartItems, onAdd, onRemove} = props
+export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
 
-  const [topRightModal, setTopRightModal] = useState(false);
+  const {cart} = useContext(MyContext)
+ 
 
-  const toggleShow = () => setTopRightModal(!topRightModal);
+
+
+  
   return (
-    <div>
-      <MDBBtn onClick={toggleShow}>Top right</MDBBtn>
-
+    <div style={{color:"black"}}>
       <MDBModal
         animationDirection="right"
         show={topRightModal}
         tabIndex="-1"
         setShow={setTopRightModal}
+      
       >
-        <MDBModalDialog position="top-right" side>
+        <MDBModalDialog position="top-right" side >
           <MDBModalContent>
-            <MDBModalHeader className="bg-info text-white">
-              <MDBModalTitle>CART</MDBModalTitle>
+            <MDBModalHeader className="bg-info text-white bg-dark bg-gradient" >
+              <MDBModalTitle >CART</MDBModalTitle>
               <MDBBtn
                 color="none"
                 className="btn-close btn-close-white"
@@ -43,27 +45,51 @@ export default function Modal(props) {
               <Grid container>
                 <Grid item xs={12}>
                   {
-                    cartItems.length === 0 ? <div>Cart empty</div> : <p>not empty</p>
-                  }
-                  <div className="my-cart">
+                    cart.length === 0 ? <div>CART EMPTY !!!</div> :
+                    
+                    
+                    
+                    
+                    <div className="my-cart">
                     <div className="item">
                       <p>Item</p>
                     </div>
                     <div className="qty">
                       <p>QTY</p>
-{/*                       
-                      <div className="box-qty">
+
+
+                      <div className="price">
+                      <p>Price</p>
+            
+                    </div>
+
+
+                      
+                            {/* {
+                              cart.map(item => <div>
+                                <img src={item.image} alt="" />
+                                <p>{item.name}</p>
+                                <p>{item.price}</p>
+                              </div>)
+                            } */}
+                      
+                      
+                      {/* <div className="box-qty">
                         <button>-</button>
                         <p>0</p>
                         <button>+</button>
                       </div> */}
                     </div>
-                    <div className="price">
-                      <p>Price</p>
-                      {/* <p> $</p> */}
-                    </div>
+                
                   </div>
-                  {cartItems.map((item) => (
+                    
+                    
+                    
+                    
+                
+                  }
+                  
+                  {/* {cartItems.map((item) => (
                     <div key={item.id} className='row'>
                       <div>{item.name}</div>
                       <div className="box-qty">
@@ -79,9 +105,8 @@ export default function Modal(props) {
 
                       
                     </div>
-                  ))}
+                  ))} */}
                 </Grid>
-                {/* <CartItem/> */}
               </Grid>
               <div className='row'>
             
