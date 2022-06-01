@@ -30,8 +30,8 @@ const Mail = () => {
       .catch(console.log("Error in send mail"));
   };
   return (
-    <>
-      <div className="container">
+    <div className="Mail"> 
+      <div className="container-contact">
         <h3>Get in touch</h3>
         <form onSubmit={handleSubmit}>
           <label>Your Name: </label>
@@ -73,7 +73,7 @@ const Mail = () => {
           <div></div>
         )}
       </div>
-    </>
+      </div> 
   );
 };
 

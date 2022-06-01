@@ -1,4 +1,4 @@
-import {useState, useEffect, Fragment} from 'react';
+import React, {useState, useEffect, Fragment} from 'react'; 
 import "./style.css" ;
 import {Link, useParams} from "react-router-dom";
 import success from "../../assets/images/login/success.png"
