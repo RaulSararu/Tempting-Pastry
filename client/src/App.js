@@ -4,10 +4,6 @@ import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
 import Top from "./components/Top/Top";
-import Checkout from "./components/Checkout/Checkout";
-import OurStory from "./components/OurStory/OurStory";
-import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Homepage from "./components/Homepage/Homepage"
 import Login from "./components/LoginPage/Login"; 
 import Logout from "./components/Navbar/Logout"; 
 import Profile from "./components/Navbar/Profile"; 
@@ -22,7 +18,9 @@ import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound"; 
 import Homepage from "./components/Homepage/Homepage" ;
 import EmailConfirm from "./components/EmailConfirm/EmailConfirm"; 
-import Mail from "./components/Mail/Mail"; 
+import Mail from "./components/Mail/Mail";  
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop"; 
+import Main from "./components/Main/Main" ; 
 
 const theme = createTheme({  
   typography: {
