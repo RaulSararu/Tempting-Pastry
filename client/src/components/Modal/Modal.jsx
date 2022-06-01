@@ -17,7 +17,7 @@ import "./style.css";
 import { MyContext } from "../Context";
 
 export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
-  const { cart, addToCart, removeItem } = useContext(MyContext);
+  const { cart, addToCart, removeItem,itemsPrice } = useContext(MyContext);
 
   return (
     <div style={{ color: "black" }}>
@@ -75,6 +75,9 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
 
                               <div className="cartprice">
                                 <span>{item.price} $</span>
+                                {/* <span>{itemsPrice} $</span> */}
+                                
+
                               </div>
                             </div>
                           ))}

@@ -56,6 +56,7 @@ export default function MyContextProvider({ children }) {
         addToCart,
         cart,
         removeItem,
+        itemsPrice
       }}
     >
       {children}
