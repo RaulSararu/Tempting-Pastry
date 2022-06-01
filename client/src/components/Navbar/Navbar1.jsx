@@ -17,9 +17,10 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { MyContext } from "../Context";
 import{ useContext} from "react"
 import Modal from "../Modal/Modal";
-/* import { Link } from "react-router-dom"; */
+import { Link } from "react-router-dom"; 
 import "./navbar.css";
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink } from  "react-router-hash-link"; 
+
 
 
 const pages = ["Home", "Products", "Our Story", "Find Us"];
@@ -183,15 +184,20 @@ const ResponsiveAppBar = () => {
                 }}
                 to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
 
-              >
+                to={
+                  page.indexOf(" ") !== -1
+                    ? page.split(" ").join("-").toLowerCase()
+                    : page.toLowerCase()
+                }
+              >  
                {page}
               </Link>
             ))} */}
             <ul className="navbarLinks">
-              <li className="navbarList"><Link smooth to="#home" className="navbarA">Home</Link></li>
-              <li className="navbarList"><Link smooth to="#products" className="navbarA">Products</Link></li>
-              <li className="navbarList"><Link  smooth to="#our-story" className="navbarA">Our Story</Link></li>
-              <li className="navbarList"><Link smooth to="#find-us" className="navbarA">Find Us</Link></li>
+              <li className="navbarList"><HashLink smooth to="#home" className="navbarA">Home</HashLink></li>
+              <li className="navbarList"><HashLink smooth to="#products" className="navbarA">Products</HashLink></li>
+              <li className="navbarList"><HashLink  smooth to="#our-story" className="navbarA">Our Story</HashLink></li>
+              <li className="navbarList"><HashLink smooth to="#find-us" className="navbarA">Find Us</HashLink></li>
             </ul>
           </Box>
 
@@ -238,15 +244,17 @@ const ResponsiveAppBar = () => {
                 > 
                   {" "}
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting} </Typography> 
+                    <Typography textAlign="center">{setting} </Typography>
                   </MenuItem>{" "}
                 </Link>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ marginLeft: "35px" }} variant="contained">
-            <ContactMailIcon sx={{ fontSize: 35, color: "#fffbe6" }} />
-          </Box>
+          <Link to="/sendmail">
+            <Box sx={{ marginLeft: "35px" }} variant="contained">
+              <ContactMailIcon sx={{ fontSize: 45, color: "#fffbe6" }} />
+            </Box>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

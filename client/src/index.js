@@ -5,10 +5,6 @@ import Context from './components/Context';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 
-
-
-
-
 ReactDOM.render(
   <Context> 
   <App />
