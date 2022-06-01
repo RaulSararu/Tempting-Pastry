@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
-import Footer from "./components/Footer/Footer";
 import Top from "./components/Top/Top";
 import Login from "./components/LoginPage/Login"; 
 import Logout from "./components/Navbar/Logout"; 
@@ -63,7 +62,7 @@ function App() {
           <Route path="/cart" element={<Cartpage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
-          <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
+          {/* <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> */}
           <Route path="/sendmail" element={<Mail/>}></Route> 
         </Routes> 
         

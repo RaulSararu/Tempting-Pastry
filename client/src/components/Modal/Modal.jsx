@@ -9,32 +9,28 @@ import {
   MDBModalBody,
   MDBModalFooter,
 } from "mdb-react-ui-kit";
+
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import { Button, Grid } from "@mui/material";
-import "./style.css"
+import "./style.css";
 import { MyContext } from "../Context";
 
-export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
+export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
+  const { cart, addToCart, removeItem } = useContext(MyContext);
 
-  const {cart} = useContext(MyContext)
- 
-
-
-
-  
   return (
-    <div style={{color:"black"}}>
+    <div style={{ color: "black" }}>
       <MDBModal
         animationDirection="right"
         show={topRightModal}
         tabIndex="-1"
         setShow={setTopRightModal}
-      
       >
-        <MDBModalDialog position="top-right" side >
+        <MDBModalDialog position="top-right" side>
           <MDBModalContent>
-            <MDBModalHeader className="bg-info text-white bg-dark bg-gradient" >
-              <MDBModalTitle >CART</MDBModalTitle>
+            <MDBModalHeader className="bg-info text-white bg-dark bg-gradient">
+              <MDBModalTitle>CART</MDBModalTitle>
               <MDBBtn
                 color="none"
                 className="btn-close btn-close-white"
@@ -44,77 +40,57 @@ export default function Modal({topRightModal,toggleShow,setTopRightModal}) {
             <MDBModalBody>
               <Grid container>
                 <Grid item xs={12}>
-                  {
-                    cart.length === 0 ? <div>CART EMPTY !!!</div> :
-                    
-                    
-                    
-                    
-                    <div className="my-cart">
-                    <div className="item">
-                      <p>Item</p>
-                    </div>
-                    <div className="qty">
-                      <p>QTY</p>
+                  {cart.length === 0 ? (
+                    <div>CART EMPTY !!!</div>
+                  ) : (
+                    <MDBContainer>
+                      <MDBRow>
+                        <MDBCol size="7" className="col-example">
+                          Item
+                        </MDBCol>
+                        <MDBCol size="3" className="col-example">
+                          QTY
+                        </MDBCol>
+                        <MDBCol size="2" className="col-example">
+                          Price
+                        </MDBCol>
+                      </MDBRow>
+                      <MDBRow>
+                        <div className="cartItem">
+                          {cart.map((item) => (
+                            <div className="cart-container">
+                              <div className="imageandname">
+                                <div className="image">
+                                  <img src={item.image} alt="" />
+                                </div>
+                                <div className="cartname">{item.name}</div>
+                              </div>
+                              <div className="box-qty">
+                                <button onClick={() => removeItem(item)}>
+                                  -
+                                </button>
+                                <p>{item.qty}</p>
+                                <button onClick={() => addToCart(item)}>+</button>
+                              </div>
 
-
-                      <div className="price">
-                      <p>Price</p>
-            
-                    </div>
-
-
-                      
-                            {/* {
-                              cart.map(item => <div>
-                                <img src={item.image} alt="" />
-                                <p>{item.name}</p>
-                                <p>{item.price}</p>
-                              </div>)
-                            } */}
-                      
-                      
-                      {/* <div className="box-qty">
-                        <button>-</button>
-                        <p>0</p>
-                        <button>+</button>
-                      </div> */}
-                    </div>
-                
-                  </div>
-                    
-                    
-                    
-                    
-                
-                  }
-                  
-                  {/* {cartItems.map((item) => (
-                    <div key={item.id} className='row'>
-                      <div>{item.name}</div>
-                      <div className="box-qty">
-                        <button onClick={()=> onRemove(item)}>-</button>
-                        <p>{item.qty}</p>
-                        <button onClick={()=> onAdd(item)}>+</button>
-                   
-                      </div> 
-                      <div>
-
-                      <p>$ {item.price.toFixed(2)}</p>
-                      </div>
-
-                      
-                    </div>
-                  ))} */}
+                              <div className="cartprice">
+                                <span>{item.price} $</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </MDBRow>
+                    </MDBContainer>
+                  )}
                 </Grid>
               </Grid>
-              <div className='row'>
-            
-              
-
-                <div className='col-9'>
+              <div className="row">
+                <div className="col-9">
                   <p>Do you need more time to make a purchase decision?</p>
-                  <p>No pressure, your product will be waiting for you in the cart.</p>
+                  <p>
+                    No pressure, your product will be waiting for you in the
+                    cart.
+                  </p>
                 </div>
               </div>
             </MDBModalBody>
