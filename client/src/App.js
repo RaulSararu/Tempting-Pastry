@@ -55,7 +55,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Homepage />} /> 
           <Route path="/" element={<Homepage />} /> 
-          <Route path="/products" element={<Products/>}></Route>
+          <Route path="/products/:id" element={<Products/>}></Route>
           <Route path="/our-story" element={<OurStory/>}></Route>
           <Route path="/find-us" element={<FindUs/>}></Route>
           <Route path="/login" element={<Login/>}></Route> 
@@ -66,6 +66,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
         </Routes> 
+        
       </BrowserRouter>
       </ThemeProvider> 
       </MyContextProvider>

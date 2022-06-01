@@ -16,12 +16,6 @@ export default function Products() {
   const [cat,setCat] = useState("breads")
   const {addToCart} = useContext(MyContext)
 
-
-
-  
-
- 
-
   const { id } = useParams();
   
   const handleClick = (param, filter) => {
@@ -33,7 +27,7 @@ export default function Products() {
 
   const [active,setActive] = useState(0)
   return (
-    <div className="products-container">
+    <div className="products-container" id="products">
       <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
