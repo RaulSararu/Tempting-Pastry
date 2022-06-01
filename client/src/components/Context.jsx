@@ -15,9 +15,7 @@ export default function MyContextProvider({ children }) {
       }
 
 
-        
-        // setCart([...cart, item])
-        // console.log('add to cart',item);
+       
       
       } // adds items to the cart
 
