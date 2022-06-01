@@ -4,7 +4,6 @@ import Products from "./components/Products/Products";
 import FindUs from "./components/FindUs/FindUs";
 import Footer from "./components/Footer/Footer";
 import Top from "./components/Top/Top";
-import Cartpage from "./components/Cartpage/Cartpage";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
@@ -16,13 +15,14 @@ import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useContext } from 'react'; 
-import Main from "./components/Main/Main"
-import MyContextProvider from "../src/components/Context";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-
-
-
-
+import Context  from "./components/Context"; 
+import Cartpage from "./components/Cartpage/Cartpage";
+import Checkout from "./components/Checkout/Checkout";
+import OurStory from "./components/OurStory/OurStory";
+import PageNotFound from "./components/PageNotFound/PageNotFound"; 
+import Homepage from "./components/Homepage/Homepage" ;
+import EmailConfirm from "./components/EmailConfirm/EmailConfirm"; 
+import Mail from "./components/Mail/Mail"; 
 
 const theme = createTheme({  
   typography: {
@@ -35,17 +35,17 @@ const theme = createTheme({
  
   }, 
 
-});
+});  
 
 
 function App() {
 
-  // const userObject =useContext(Context); 
-
+  const userObject =useContext(Context); 
+ 
 
   return (
     <div className="App">
-      <MyContextProvider>
+      <Context>
        <ThemeProvider theme={theme}> 
       <BrowserRouter>
       <ScrollToTop />
@@ -65,10 +65,12 @@ function App() {
           <Route path="/cart" element={<Cartpage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />}/>
+          <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
+          <Route path="/sendmail" element={<Mail/>}></Route> 
         </Routes> 
       </BrowserRouter>
       </ThemeProvider> 
-      </MyContextProvider>
+      </Context> 
     </div>
   );
 }
