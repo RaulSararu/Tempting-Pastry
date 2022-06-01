@@ -1,6 +1,13 @@
-import { useContext } from "react";
-import { Card, Typography, CardContent, Button } from "@mui/material";
-import "./style.css";
+
+import React, {useContext} from "react"; 
+import {
+  Card,
+  Typography,
+  CardContent,
+  Button
+} from "@mui/material";
+// import pic1 from "../../assets/images/breads/assorted_1lb_breadbowl.png";
+import "./style.css"
 import { MyContext } from "../Context";
 
 export default function CardItem({ item, cb }) {
@@ -24,7 +31,7 @@ export default function CardItem({ item, cb }) {
           {item.name}
         </Typography>
         <Typography
-          sx={{ fontSize: 14 }}
+          sx={{ fontSize: 14 }}  
           color="text.secondary"
           align="center"
           gutterBottom
