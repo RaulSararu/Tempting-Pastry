@@ -183,7 +183,12 @@ const ResponsiveAppBar = () => {
                 }}
                 to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
 
-              >
+                to={
+                  page.indexOf(" ") !== -1
+                    ? page.split(" ").join("-").toLowerCase()
+                    : page.toLowerCase()
+                }
+              >  
                {page}
               </Link>
             ))} */}
@@ -238,15 +243,17 @@ const ResponsiveAppBar = () => {
                 > 
                   {" "}
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting} </Typography> 
+                    <Typography textAlign="center">{setting} </Typography>
                   </MenuItem>{" "}
                 </Link>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ marginLeft: "35px" }} variant="contained">
-            <ContactMailIcon sx={{ fontSize: 35, color: "#fffbe6" }} />
-          </Box>
+          <Link to="/sendmail">
+            <Box sx={{ marginLeft: "35px" }} variant="contained">
+              <ContactMailIcon sx={{ fontSize: 45, color: "#fffbe6" }} />
+            </Box>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

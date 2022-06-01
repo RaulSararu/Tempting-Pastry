@@ -43,6 +43,28 @@ function Auth() {
     const response = await axios.post("/users/register", data);
     console.log("response from register is", response);
   };
+ 
+  const [error, setError] = useState("")
+  const [msg, setMsg]= useState("")
+
+  const handleSubmit = async(e)=> { 
+    e.preventDefault();
+    try {
+      const url = "http://localhost:5000/api/users";
+      const {data:res} = await axios.post(url, data);
+      setMsg(res.message);
+      
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >=400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message)
+      }
+    }
+  };  
+
 
   // Login with Social Media
   const Login = () => {
@@ -111,7 +133,7 @@ function Auth() {
           <div className="or">OR</div>
         </div>
 
-        <div className="right">
+        <div className="right" onSubmit={handleSubmit}>
           <h3>Register</h3>
           <input
             type="text"
@@ -137,8 +159,10 @@ function Auth() {
             onChange={(e) => setData({ ...data, email: e.target.value })}
             value={data.email}
           />
+          {error && <div className="error_msg">{error}</div>}
+						{msg && <div className="success_msg">{msg}</div>}
           <button className="submit" onClick={register}>
-            Submit
+            Submit 
           </button>
         </div>
       </div>

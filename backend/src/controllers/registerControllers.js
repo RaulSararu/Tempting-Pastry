@@ -1,5 +1,8 @@
-const User = require('../models/User');
+const {User, validate} = require('../models/User');
 const bcrypt = require('bcrypt');
+const Token = require("../models/Token");
+const sendEmail = require("../utils/sendEmail");
+const crypto = require("crypto"); 
 
 const handleNewUser= async (req,res)=> {
     try {
@@ -10,7 +13,7 @@ const handleNewUser= async (req,res)=> {
         res.send("Improper Values"); 
         return;  } 
     
-        User.findOne({username}, async (err,doc) => {
+      let user= await User.findOne({username}, async (err,doc) => {
             if(err) throw err;
             if(doc) res.send("User already exist");
             if(!doc) {
@@ -20,18 +23,23 @@ const handleNewUser= async (req,res)=> {
                     email,
                     password: hashedPassword 
                 });
-                await newUser.save();
-                res.send("User Created")
+               user= await newUser.save();
+                const token = await new Token({
+                    userId: user._id,
+                    token: crypto.randomBytes(32).toString("hex")
+                }).save();
+                const url =`${process.env.BASE_URL}users/${user._id}/verify/${token.token}`;
+                await sendEmail(user.email, "Verify Email", url); 
+
+                res.send({message:"An Email sent to your account, please verify"})
             }
         });
-        
+
     } catch (error) {
         console.log('Error in the register', error.message)
         return res.send ("Error in register") 
     }
   
 }; 
-
-
 
 module.exports = { handleNewUser }; 
