@@ -44,7 +44,7 @@ export default function Products() {
         <Grid item xs={12} 
   
   container>
-          <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
+          <Grid item  xs={3} />
           <Grid item xs={6}  sx={{padding:'5px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
 
             {

@@ -5,9 +5,8 @@
 
 }
 
-.Products .pastries a {
-    color: gray; 
-    text-decoration: none;
+.Products .pastries p {
+    cursor: pointer;
 }
 
 

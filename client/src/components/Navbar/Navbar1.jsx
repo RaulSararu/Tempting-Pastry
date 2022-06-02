@@ -17,9 +17,8 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { MyContext } from "../Context";
 import{ useContext} from "react"
 import Modal from "../Modal/Modal";
-import { Link } from "react-router-dom"; 
 import "./navbar.css";
-import { HashLink } from  "react-router-hash-link"; 
+import { HashLink as Link } from  "react-router-hash-link"; 
 
 
 
@@ -170,29 +169,7 @@ const ResponsiveAppBar = () => {
               display: { xs: "none", md: "flex", justifyContent: "center" },
             }}
           >
-            {pages.map((page) => (
-              <Link
-                key={page}
-                onClick={handleCloseNavMenu}
-                style={{
-                  my: 2,
-                  display: "flex",
-                  color: "#FFFBE6",
-                  fontSize: "1.8rem",
-                  marginLeft:"30px",
-                  textDecoration:"none",
-                }}
-                to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
-
-                // to={
-                //   page.indexOf(" ") !== -1
-                //     ? page.split(" ").join("-").toLowerCase()
-                //     : page.toLowerCase()
-                // }
-              >  
-               {page}
-              </Link>
-            ))} 
+            
             <ul className="navbarLinks">
               <li className="navbarList"><Link smooth to="/#home" className="navbarA">Home</Link></li>
               <li className="navbarList"><Link smooth to="/#products" className="navbarA">Products</Link></li>
