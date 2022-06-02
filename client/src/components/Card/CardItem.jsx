@@ -13,7 +13,7 @@ import { MyContext } from "../Context";
 export default function CardItem({ item, cb }) {
   const { addToCart } = useContext(MyContext);
   return (
-    <div>
+    <div className="CardItem">
       <Card sx={{ width: 280, marginBottom: "20px" }}>
         <CardContent>
           <img

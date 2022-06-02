@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
-import FindUs from "./components/FindUs/FindUs";
 import Top from "./components/Top/Top";
 import Checkout from "./components/Checkout/Checkout";
 import OurStory from "./components/OurStory/OurStory";

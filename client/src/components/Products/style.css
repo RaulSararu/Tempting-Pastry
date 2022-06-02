@@ -1,21 +1,20 @@
-.pastries {
+.Products .pastries {
     display: flex;
     justify-content: space-between;
     padding:10px 70px;
 
 }
 
-.pastries a {
-    color: gray; 
-    text-decoration: none;
+.Products .pastries p {
+    cursor: pointer;
 }
 
 
 
-.pastries a:visited {
+.Products .pastries a:visited {
     color: gray;
 }
-.pastries a:hover {
+.Products .pastries a:hover {
     color: rgb(5, 5, 48);
   
 

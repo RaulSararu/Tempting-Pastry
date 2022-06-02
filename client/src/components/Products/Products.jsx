@@ -27,14 +27,13 @@ export default function Products() {
 
   const [active,setActive] = useState(0)
   return (
-    <div className="products-container" id="products">
+    <div className="Products">
       <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} />
           <Grid item xs={4}>
             <div className="pastries">
-                <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
-
+              <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
               <p onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>Breakfast Pastries</p>
               <p onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>Desserts</p>
               <p onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>Cakes</p>
@@ -45,7 +44,7 @@ export default function Products() {
         <Grid item xs={12} 
   
   container>
-          <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
+          <Grid item  xs={3} />
           <Grid item xs={6}  sx={{padding:'5px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
 
             {

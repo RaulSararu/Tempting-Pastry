@@ -17,10 +17,12 @@ import "./style.css";
 import { MyContext } from "../Context";
 
 export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
-  const { cart, addToCart, removeItem } = useContext(MyContext);
+  const { cart, addToCart, removeItem, itemsPrice } = useContext(MyContext);
+
+  console.log("Cart", cart);
 
   return (
-    <div style={{ color: "black" }}>
+    <div className="Modal" style={{ color: "black" }}>
       <MDBModal
         animationDirection="right"
         show={topRightModal}
@@ -70,11 +72,12 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
                                   -
                                 </button>
                                 <p>{item.qty}</p>
-                                <button onClick={() => addToCart(item)}>+</button>
+                                <button onClick={() => addToCart(item)}>
+                                  +
+                                </button>
                               </div>
-
                               <div className="cartprice">
-                                <span>{item.price} $</span>
+                                <span>{item.qty * item.price} $</span>
                               </div>
                             </div>
                           ))}
@@ -96,9 +99,15 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
             </MDBModalBody>
             <MDBModalFooter>
               <Link to="/cart">
-                <Button variant="contained">Go to the cart</Button>
+                <Button sx={{ fontFamily: "sans-serif" }} variant="contained">
+                  Go to the cart
+                </Button>
               </Link>
-              <Button variant="outlined" onClick={toggleShow}>
+              <Button
+                sx={{ fontFamily: "sans-serif" }}
+                variant="outlined"
+                onClick={toggleShow}
+              >
                 Close
               </Button>
             </MDBModalFooter>
