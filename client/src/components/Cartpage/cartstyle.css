@@ -26,9 +26,7 @@
   height: 20px;
 }
 
-/* .cartItem {
-  margin-bottom: 30px;
-} */
+
 
 .cart-container {
   display: flex;
@@ -38,6 +36,8 @@
   height: 140px;
   background-color: transparent;
   border-bottom: 1px solid rgba(128, 128, 128, 0.397);
+
+  margin-bottom: 30px;
 }
 
 .cart-container div {

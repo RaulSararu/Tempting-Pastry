@@ -1,5 +1,5 @@
-import React from 'react'
-import Products from '../Products/Products'
+import React from "react";
+import Products from "../Products/Products";
 // import Video from "../../assets/video/cake.mp4"
 import "./main.css"
 import OurStory from '../OurStory/OurStory'
@@ -25,5 +25,5 @@ export default function Main() {
  
      
     </div>
-  )
+  );
 }

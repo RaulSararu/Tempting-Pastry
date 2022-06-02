@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react"; 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -17,9 +17,10 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { MyContext } from "../Context";
 import{ useContext} from "react"
 import Modal from "../Modal/Modal";
-/* import { Link } from "react-router-dom"; */
+import { Link } from "react-router-dom"; 
 import "./navbar.css";
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink } from  "react-router-hash-link"; 
+
 
 
 const pages = ["Home", "Products", "Our Story", "Find Us"];

@@ -30,7 +30,7 @@ export default function Products() {
     <div className="products-container" id="products">
       <Grid container >
         <Grid item xs={12} container>
-          <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
+          <Grid item xs={4} />
           <Grid item xs={4}>
             <div className="pastries">
                 <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
@@ -40,9 +40,9 @@ export default function Products() {
               <p onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>Cakes</p>
             </div>
           </Grid>
-          <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
+          <Grid item xs={4}  />
         </Grid>
-        <Grid item xs={12} sx={{backgroundColor:'orange'}}
+        <Grid item xs={12} 
   
   container>
           <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
@@ -53,7 +53,7 @@ export default function Products() {
             }
 
           </Grid>
-          <Grid item  xs={3}  sx={{backgroundColor:'pink'}} />
+          <Grid item  xs={3}   />
         </Grid>
       </Grid>
     </div>

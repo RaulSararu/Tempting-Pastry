@@ -41,6 +41,7 @@ function Auth() {
 
   const register = async (e) => {
     const response = await axios.post("/users/register", data);
+    console.log("data", data); 
     console.log("response from register is", response);
   };
  
