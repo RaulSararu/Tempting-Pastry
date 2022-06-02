@@ -33,18 +33,11 @@ export default function Products() {
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
           <Grid item xs={4}>
             <div className="pastries">
-              <Link to="products/breads" onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>
-                <p>Breads</p>
-              </Link>
-              <Link to="products/breakfast-pastries" onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>
-              <p>Breakfast Pastries</p>
-              </Link>
-              <Link to="products/desserts" onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>
-              <p>Desserts</p>
-              </Link>
-              <Link to="products/cakes" onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>
-              <p>Cakes</p>
-              </Link>
+                <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
+
+              <p onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>Breakfast Pastries</p>
+              <p onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>Desserts</p>
+              <p onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>Cakes</p>
             </div>
           </Grid>
           <Grid item xs={4} sx={{ backgroundColor: "gray" }} />
@@ -53,7 +46,7 @@ export default function Products() {
   
   container>
           <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
-          <Grid item xs={6}  sx={{padding:'20px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
+          <Grid item xs={6}  sx={{padding:'5px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
 
             {
               data[cat].map((item) => <CardItem item={item} key={item.id} cb={addToCart}/>)

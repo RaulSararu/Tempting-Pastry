@@ -5,6 +5,7 @@ import "./main.css"
 import OurStory from '../OurStory/OurStory'
 import Modal from '../Modal/Modal'
 import Footer from '../Footer/Footer'
+import Mail from '../Mail/Mail'
 
 export default function Main() {
   return (
@@ -12,6 +13,7 @@ export default function Main() {
         <Products/>
         <OurStory />
         {/* <Modal/> */}
+        {/* <Mail /> */}
         <Footer />
   
         

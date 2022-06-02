@@ -193,10 +193,10 @@ const ResponsiveAppBar = () => {
               </Link>
             ))} */}
             <ul className="navbarLinks">
-              <li className="navbarList"><Link smooth to="#home" className="navbarA">Home</Link></li>
-              <li className="navbarList"><Link smooth to="#products" className="navbarA">Products</Link></li>
-              <li className="navbarList"><Link  smooth to="#our-story" className="navbarA">Our Story</Link></li>
-              <li className="navbarList"><Link smooth to="#find-us" className="navbarA">Find Us</Link></li>
+              <li className="navbarList"><Link smooth to="/#home" className="navbarA">Home</Link></li>
+              <li className="navbarList"><Link smooth to="/#products" className="navbarA">Products</Link></li>
+              <li className="navbarList"><Link  smooth to="/#our-story" className="navbarA">Our Story</Link></li>
+              <li className="navbarList"><Link smooth to="/#find-us" className="navbarA">Find Us</Link></li>
             </ul>
           </Box>
 
