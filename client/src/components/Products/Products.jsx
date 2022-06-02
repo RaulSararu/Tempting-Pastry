@@ -27,24 +27,16 @@ export default function Products() {
 
   const [active,setActive] = useState(0)
   return (
-    <div className="products-container" id="products">
+    <div className="Products">
       <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} />
           <Grid item xs={4}>
             <div className="pastries">
-              <Link to="/breads" onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>
-                <p>Breads</p>
-              </Link>
-              <Link to="products/breakfast-pastries" onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>
-              <p>Breakfast Pastries</p>
-              </Link>
-              <Link to="products/desserts" onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>
-              <p>Desserts</p>
-              </Link>
-              <Link to="products/cakes" onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>
-              <p>Cakes</p>
-              </Link>
+              <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
+              <p onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>Breakfast Pastries</p>
+              <p onClick={() => handleClick(3,"desserts")} style={{color:active === 3 && 'black'}}>Desserts</p>
+              <p onClick={() => handleClick(4,"cakes")} style={{color:active === 4 && 'black'}}>Cakes</p>
             </div>
           </Grid>
           <Grid item xs={4}  />

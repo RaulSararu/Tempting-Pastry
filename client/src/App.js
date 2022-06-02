@@ -41,8 +41,9 @@ function App() {
       <Context>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
+          <Main />
              <Routes>
-              <Route path="/" element={<Layout />}>
+              {/* <Route path="/" element={<Layout />}> */}
                 <Route index element={<Main />} />
                 <Route path="/products/:id" element={<Products />}></Route>
                 <Route path="/our-story" element={<OurStory />}></Route>
@@ -56,7 +57,7 @@ function App() {
                 <Route path="*" element={<PageNotFound />} />
                 <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
                 <Route path="/sendmail" element={<Mail />}></Route>
-              </Route>
+              {/* </Route> */}
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
