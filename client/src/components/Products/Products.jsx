@@ -44,8 +44,8 @@ export default function Products() {
         <Grid item xs={12} 
   
   container>
-          <Grid item  xs={3} />
-          <Grid item xs={6}  sx={{padding:'20px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
+          <Grid item  xs={3} sx={{backgroundColor:'pink'}}/>
+          <Grid item xs={6}  sx={{padding:'5px'}} direction="row" justifyContent="space-between"  alignItems="center" container>
 
             {
               data[cat].map((item) => <CardItem item={item} key={item.id} cb={addToCart}/>)
