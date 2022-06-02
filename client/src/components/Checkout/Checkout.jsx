@@ -3,16 +3,22 @@ import {
   Divider,
   Grid,
   Typography,
-  InputLabel,
-  Input,
   Button,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "./style.css";
+import { MyContext } from "../Context";
+
 
 export default function Checkout() {
+  const {cart} = useContext(MyContext)
+  
+
+
+
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} container>
@@ -40,8 +46,6 @@ export default function Checkout() {
               <Box sx={{ textTransform: "uppercase" }}>SHIPPING ADDRESS</Box>
             </Typography>
             <form>
-              {/* <InputLabel>Input Label Text</InputLabel>
-              <Input sx={{ marginTop: 4 }} /> */}
               <div className="d-flex w-100">
                 <input
                   type="text"
@@ -84,14 +88,18 @@ export default function Checkout() {
               <Link to="/cart">
             <p><ArrowBackIcon sx={{marginRight:"5px", marginTop:"-3px"}}/> RETURN TO CART</p>
               </Link>
-            <Button variant="contained"> CONTINUE  TO SHIPPING</Button>
+            <Button sx={{fontFamily: "sans-serif" }} variant="contained"> CONTINUE  TO SHIPPING</Button>
 
             </div>
           </Grid>
           <Grid item xs={1} />
         </Grid>
         <Grid item xs={4} container style={{ backgroundColor: "lightgray" }}>
-          sidebar
+
+
+
+
+          
         </Grid>
 
         {/* <Grid item xs={12}>

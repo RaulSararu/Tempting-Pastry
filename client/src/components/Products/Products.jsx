@@ -33,7 +33,7 @@ export default function Products() {
           <Grid item xs={4} />
           <Grid item xs={4}>
             <div className="pastries">
-              <Link to="products/breads" onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>
+              <Link to="/breads" onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>
                 <p>Breads</p>
               </Link>
               <Link to="products/breakfast-pastries" onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>

@@ -28,8 +28,8 @@ const EmailConfirm = () =>{
                 <div className="imgContainer">
                     <img src={success} alt="success_img" className='success_img'/> 
                     <h1>Email verified successfully</h1>
-                    <Link to="/login">
-                        <button className="login">Login</button>
+                    <Link  to="/login">
+                        <button className="loginConfirm">Login</button>
                     </Link>
                 </div>
             ) : (

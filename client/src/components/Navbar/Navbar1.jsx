@@ -170,7 +170,7 @@ const ResponsiveAppBar = () => {
               display: { xs: "none", md: "flex", justifyContent: "center" },
             }}
           >
-            {/* {pages.map((page) => (
+            {pages.map((page) => (
               <Link
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -184,21 +184,21 @@ const ResponsiveAppBar = () => {
                 }}
                 to={page.indexOf(" ") !== -1 ? page.split(" ").join("-").toLowerCase():page.toLowerCase()}
 
-                to={
-                  page.indexOf(" ") !== -1
-                    ? page.split(" ").join("-").toLowerCase()
-                    : page.toLowerCase()
-                }
+                // to={
+                //   page.indexOf(" ") !== -1
+                //     ? page.split(" ").join("-").toLowerCase()
+                //     : page.toLowerCase()
+                // }
               >  
                {page}
               </Link>
-            ))} */}
-            <ul className="navbarLinks">
+            ))}
+            {/* <ul className="navbarLinks">
               <li className="navbarList"><HashLink smooth to="#home" className="navbarA">Home</HashLink></li>
               <li className="navbarList"><HashLink smooth to="#products" className="navbarA">Products</HashLink></li>
               <li className="navbarList"><HashLink  smooth to="#our-story" className="navbarA">Our Story</HashLink></li>
               <li className="navbarList"><HashLink smooth to="#find-us" className="navbarA">Find Us</HashLink></li>
-            </ul>
+            </ul> */}
           </Box>
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">

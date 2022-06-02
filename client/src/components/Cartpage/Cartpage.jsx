@@ -8,15 +8,15 @@ export default function Cartpage() {
   const { cart, removeItem, addToCart} = useContext(MyContext);
 
   return (
-    <div /*className="cart-container" */>
+    <div className="Cartpage">
       <Grid container spacing={3}>
         <Grid item xs={2} />
         <Grid
           item
           xs={5}
           style={{
-            backgroundColor: "lightgrey",
-            borderRight: "1px solid grey",
+            // backgroundColor: "lightgrey",
+            // borderRight: "1px solid grey",
           }}
         >
           <Typography pb={4} variant="h4">
@@ -49,14 +49,14 @@ export default function Cartpage() {
               </div>
 
               <div className="cartprice">
-                <span>{item.price} $</span>
+              <span>{item.qty * item.price} $</span>
               </div>
             </div>
           ))}
 
           {}
         </Grid>
-        <Grid item xs={3} style={{ backgroundColor: "lightgrey" }}>
+        <Grid item xs={3} >
           <Typography pb={4} variant="h4">
             ORDER SUMMARY
           </Typography>
@@ -68,7 +68,7 @@ export default function Cartpage() {
             subtotal <span className="total-price">$</span>
           </p>
           <Link to="/checkout">
-            <Button variant="contained">CHECKOUT</Button>
+            <Button sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>
           </Link>
         </Grid>
         <Grid item xs={2} />
