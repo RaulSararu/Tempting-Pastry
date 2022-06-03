@@ -2,8 +2,14 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
   
 export const MyContext = createContext();
+
+const cartLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
+
 export default function MyContextProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartLocalStorage);
+
 
   const addToCart = (item) => {
     const exist = cart.find((x) => x.id === item.id);
@@ -41,14 +47,9 @@ export default function MyContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState("");
   const [userObject, setUserObject] = useState();
 
-  //   useEffect(() => {
-  //     axios.get("/getuser", { withCredentials: true }).then((res) => {
-  //       console.log(res);
-  //       if (res.data) {
-  //         setUserObject(res.data);
-  //       }
-  //     });
-  //   }, []);
+    useEffect(() => {
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart]);
 
   return (
     <MyContext.Provider
