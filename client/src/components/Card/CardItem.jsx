@@ -6,7 +6,6 @@ import {
   CardContent,
   Button
 } from "@mui/material";
-// import pic1 from "../../assets/images/breads/assorted_1lb_breadbowl.png";
 import "./style.css"
 import { MyContext } from "../Context";
 

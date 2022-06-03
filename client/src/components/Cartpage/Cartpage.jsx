@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { MyContext } from "../Context";
 
 export default function Cartpage() {
-  const { cart, removeItem, addToCart} = useContext(MyContext);
+  const { cart, removeItem, addToCart, itemsPrice} = useContext(MyContext);
 
   return (
     <div className="Cartpage">
@@ -65,7 +65,7 @@ export default function Cartpage() {
           <hr />
 
           <p>
-            subtotal <span className="total-price">$</span>
+            subtotal <span className="total-price">{itemsPrice}  $</span>
           </p>
           <Link to="/checkout">
             <Button sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>

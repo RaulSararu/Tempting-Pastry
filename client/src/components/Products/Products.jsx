@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link,  useParams } from "react-router-dom";
@@ -27,11 +27,13 @@ export default function Products() {
 
   const [active,setActive] = useState(0)
   return (
-    <div className="Products">
+    <div className="Products" id="products">
       <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} />
           <Grid item xs={4}>
+            <Typography variant="h4" align="center">Like sweets?</Typography>
+            <Typography variant="h5" align="center">have a look at our products...</Typography>
             <div className="pastries">
               <p onClick={() => handleClick(1,'breads')} style={{color:active === 1 && 'black'}}>Breads</p>
               <p onClick={() => handleClick(2,"breakfast")} style={{color:active === 2 && 'black'}}>Breakfast Pastries</p>

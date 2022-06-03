@@ -31,7 +31,10 @@ export default function MyContextProvider({ children }) {
     }
   };
 
-  const itemsPrice = cart.reduce((a,c) => a + c.price * c.price, 0)
+  const itemsPrice = cart.reduce((a,c) => a + c.price * c.qty, 0)
+  const taxPrice = itemsPrice * 0.14
+  const shippingPrice = itemsPrice > 50 ? 0: 10
+  const totalPrice = itemsPrice + taxPrice + shippingPrice
 
 
 
@@ -56,7 +59,9 @@ export default function MyContextProvider({ children }) {
         addToCart,
         cart,
         removeItem,
-        itemsPrice
+        itemsPrice,
+        totalPrice,
+        shippingPrice
       }}
     >
       {children}

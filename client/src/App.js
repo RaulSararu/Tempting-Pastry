@@ -1,27 +1,24 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
-import Top from "./components/Top/Top";
 import Checkout from "./components/Checkout/Checkout";
-import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Homepage from "./components/Homepage/Homepage";
 import Login from "./components/LoginPage/Login";
 import Logout from "./components/Navbar/Logout";
 import Profile from "./components/Navbar/Profile";
 import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import React, { useContext } from "react";
+import React from "react";
 import Context from "./components/Context";
 import Cartpage from "./components/Cartpage/Cartpage";
 /* import EmailConfirm from "./components/EmailConfirm/EmailConfirm";  */
 import Mail from "./components/Mail/Mail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import Main from "./components/Main/Main";
-import Layout from "./components/Layouts/ContactLayout";
+
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
+import ContactLayout from "./components/Layouts/ContactLayout";
 
 const theme = createTheme({
   typography: {
@@ -35,8 +32,6 @@ const theme = createTheme({
 });
 
 function App() {
-  const userObject = useContext(Context);
-
   return (
     <div className="App">
       <Context>
@@ -44,28 +39,22 @@ function App() {
           <BrowserRouter>
             <ScrollToTop />
             <Navbar1 />
-           
+
             <Routes>
-              <Route element = {< Layout/>}>
+              <Route element={<ContactLayout />}>
                 {/* Top */}
                 {/* Main */}
                 <Route path="/sendmail" element={<Mail />} />
               </Route>
 
-              <Route element = {< MainLayout/>}>
+              <Route element={<MainLayout />}>
                 <Route path="/" element={<Products />} />
               </Route>
 
-              <Route element = {< LoginLayout/>}>
+              <Route element={<LoginLayout />}>
                 <Route path="/login" element={<Login />} />
               </Route>
-
-              {/* <Route path="/home" element={<Homepage />} /> 
-          <Route path="/alkis" element={<Alkis />} /> */}
               <Route path="/products/:id" element={<Products />}></Route>
-              {/* <Route path="/our-story" element={<OurStory/>}></Route> */}
-              {/* <Route path="/find-us" element={<FindUs/>}></Route>
-          <Route path="/login" element={<Login/>}></Route>  */}
               <Route path="/profile" element={<Profile />}></Route>
               <Route path="/logout" element={<Logout />}></Route>
               <Route path="/google/:id" element={<Google />}></Route>
@@ -73,7 +62,6 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="*" element={<PageNotFound />} />
               {/* <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> */}
-              {/* <Route path="/sendmail" element={<Mail/>}></Route>  */}
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
