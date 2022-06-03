@@ -99,7 +99,7 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
             </MDBModalBody>
             <MDBModalFooter>
               <Link to="/cart">
-                <Button sx={{ fontFamily: "sans-serif" }} variant="contained">
+                <Button onClick={toggleShow} sx={{ fontFamily: "sans-serif" }} variant="contained">
                   Go to the cart
                 </Button>
               </Link>
