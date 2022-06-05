@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
-import "./cartstyle.css"
+import "./cartstyle.css";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Context";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function Cartpage() {
-  const { cart, removeItem, addToCart, itemsPrice} = useContext(MyContext);
+  const { cart, removeItem, addToCart, itemsPrice, handleRemove } =
+    useContext(MyContext);
 
   return (
     <div className="Cartpage">
@@ -14,10 +16,12 @@ export default function Cartpage() {
         <Grid
           item
           xs={5}
-          style={{
-            // backgroundColor: "lightgrey",
-            // borderRight: "1px solid grey",
-          }}
+          style={
+            {
+              // backgroundColor: "lightgrey",
+              // borderRight: "1px solid grey",
+            }
+          }
         >
           <Typography pb={4} variant="h4">
             CART
@@ -49,14 +53,18 @@ export default function Cartpage() {
               </div>
 
               <div className="cartprice">
-              <span>{item.qty * item.price} $</span>
+                <span>{item.qty * item.price} €</span>
+                <CloseIcon
+                  onClick={() => handleRemove(item)}
+                  sx={{ marginLeft: "10px" }}
+                />
               </div>
             </div>
           ))}
 
           {}
         </Grid>
-        <Grid item xs={3} >
+        <Grid item xs={3}>
           <Typography pb={4} variant="h4">
             ORDER SUMMARY
           </Typography>
@@ -65,10 +73,13 @@ export default function Cartpage() {
           <hr />
 
           <p>
-            subtotal <span className="total-price">{itemsPrice}  $</span>
+            subtotal <span className="total-price">{itemsPrice} €</span>
           </p>
           <Link to="/checkout">
-            <Button sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>
+            <Button sx={{ fontFamily: "sans-serif",
+          backgroundColor: "rgb(34, 27, 80)" }} variant="contained">
+              CHECKOUT
+            </Button>
           </Link>
         </Grid>
         <Grid item xs={2} />

@@ -16,9 +16,9 @@ import { Button, Grid } from "@mui/material";
 import "./style.css";
 import { MyContext } from "../Context";
 
-
 export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
-  const { cart, addToCart, removeItem, itemsPrice, handleRemove } = useContext(MyContext);
+  const { cart, addToCart, removeItem, itemsPrice, handleRemove } =
+    useContext(MyContext);
 
   console.log("Cart", cart);
 
@@ -78,11 +78,11 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
                                 </button>
                               </div>
                               <div className="cartprice">
-                                <span>{item.qty * item.price} $</span>
+                                <span>{item.qty * item.price} €</span>
                                 <MDBBtn
                                   color="none"
                                   className="btn-close btn-close-grey"
-                                  style={{marginLeft:"20px"}}
+                                  style={{ marginLeft: "20px" }}
                                   onClick={() => handleRemove(item)}
                                 ></MDBBtn>
                               </div>
@@ -90,34 +90,28 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
                           ))}
                         </div>
                         <div className="row">
-                <div className="col-12">
-                  <p>Do you need more time to make a purchase decision?</p>
-                  <p>
-                    No pressure, your product will be waiting for you in the
-                    cart.
-                  </p>
-                </div>
-              </div>
+                          <div className="col-12">
+                            <p>
+                              Do you need more time to make a purchase decision?
+                            </p>
+                            <p>
+                              No pressure, your product will be waiting for you
+                              in the cart.
+                            </p>
+                          </div>
+                        </div>
                       </MDBRow>
                     </MDBContainer>
                   )}
                 </Grid>
               </Grid>
-              {/* <div className="row">
-                <div className="col-9">
-                  <p>Do you need more time to make a purchase decision?</p>
-                  <p>
-                    No pressure, your product will be waiting for you in the
-                    cart.
-                  </p>
-                </div>
-              </div> */}
             </MDBModalBody>
             <MDBModalFooter>
               <Link to="/cart">
                 <Button
                   onClick={toggleShow}
-                  sx={{ fontFamily: "sans-serif" }}
+                  sx={{ fontFamily: "sans-serif",
+                  backgroundColor: "rgb(34, 27, 80)", }}
                   variant="contained"
                 >
                   Go to the cart

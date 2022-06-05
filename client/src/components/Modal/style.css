@@ -12,7 +12,7 @@
 }
 
 .Modal .box-qty p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-top: 2px;
 }
 
@@ -73,8 +73,9 @@
 
 .Modal .cartprice {
   text-align: center;
-  width: 70px;
-  font-size: 0.8rem;
+  width: 80px;
+  font-size: 0.9rem;
+  /* background-color: aqua; */
   
 
 }

@@ -78,14 +78,14 @@ export default function Checkout() {
               </form>
               <div className="return-cart">
                 <Link to="/cart">
-                  <p>
+                  <p style={{color: "rgb(34, 27, 80)"}}>
                     <ArrowBackIcon
                       sx={{ marginRight: "5px", marginTop: "-3px" }}
                     />{" "}
                     RETURN TO CART
                   </p>
                 </Link>
-                <Button sx={{ fontFamily: "sans-serif" }} variant="contained">
+                <Button sx={{ fontFamily: "sans-serif",backgroundColor: "rgb(34, 27, 80)" }} variant="contained">
                   {" "}
                   CONTINUE TO SHIPPING
                 </Button>
@@ -108,7 +108,7 @@ export default function Checkout() {
                   </div>
                   <div className="cart-title">{item.name}</div>
                   <div className="price">
-                    <span>{item.qty * item.price} $</span>
+                    <span>{item.qty * item.price} €</span>
                   </div>
                 </div>
               </div>
@@ -120,17 +120,17 @@ export default function Checkout() {
                   <div className="price-devision">
                     <p>subtotal</p>
                     <div className="price">
-                      <span> {itemsPrice} $</span>
+                      <span> {itemsPrice} €</span>
                     </div>
                   </div>
                   <div className="price-devision">
                     <p>shipping</p>
-                    <span>{shippingPrice} $</span>
+                    <span>{shippingPrice} €</span>
                   </div>
                   <div className="price-devision">
                     <p>total </p>
                     <div>
-                      <span>{totalPrice.toFixed(2)} $</span>
+                      <span>{totalPrice.toFixed(2)} €</span>
                     </div>
                   </div>
                 </>

@@ -35,7 +35,7 @@ export default function CardItem({ item, cb }) {
           align="center"
           gutterBottom
         >
-          {item.price}
+          {item.price} €
         </Typography>
 
         <Button
