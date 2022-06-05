@@ -40,6 +40,13 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.397);
 }
 
+.Modal .empty {
+  text-align: center;
+  padding: 30px;
+}
+
+
+
 .Modal .cart-container div {
   margin: 0;
 }
@@ -68,4 +75,6 @@
   text-align: center;
   width: 70px;
   font-size: 0.8rem;
+  
+
 }
