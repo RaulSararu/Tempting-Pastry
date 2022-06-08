@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from "react"; 
-import axios from "axios";
-  
+import axios from "axios"; 
+
 export const MyContext = createContext();
+
 export default function MyContextProvider({ children }) {
   const [cart, setCart] = useState([]);
 
@@ -38,14 +39,14 @@ export default function MyContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState("");
   const [userObject, setUserObject] = useState();
 
-  //   useEffect(() => {
-  //     axios.get("/getuser", { withCredentials: true }).then((res) => {
-  //       console.log(res);
-  //       if (res.data) {
-  //         setUserObject(res.data);
-  //       }
-  //     });
-  //   }, []);
+    useEffect(() => {
+      axios.get("http:localhost:5000/getuser", { withCredentials: true }).then((res) => {
+        console.log(res);
+        if (res.data) {
+          setUserObject(res.data); 
+        }
+      });
+    }, []);
 
   return (
     <MyContext.Provider

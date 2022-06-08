@@ -9,26 +9,27 @@ const Mail = () => {
     status: false,
   });
   const { userName, userEmail, message, status } = values;
-  const handleChange = (name) => (event) => {
+  const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     console.log("values name", userName);
     console.log("values email", userEmail);
     console.log("values message", message);
     sendMail({ userName, userEmail, message })
-      .then((data) => {
-        if (data.err) {
-          console.log("err", data.err);
+      .then(data => {
+        
+        if (data && data.err) { 
+          console.log("err", data.err); 
         } else {
           console.log("Success", data);
           setValues({ ...values, status: true });
         }
       })
-      .catch(console.log("Error in send mail"));
-  };
+      .catch(err=> console.log("Error in send mail", err)) 
+  }
   return (
     <div className="Mail"> 
       <div className="container-contact">
@@ -77,4 +78,4 @@ const Mail = () => {
   );
 };
 
-export default Mail;
+export default Mail;  

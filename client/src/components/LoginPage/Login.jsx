@@ -259,7 +259,7 @@ function handleChangePassword(e) {
             onBlur={() => setPwdFocus(false)}
           />
 
-<p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+            <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                           
                             8 to 24 characters.<br />
                             Must include uppercase and lowercase letters, a number and a special character.<br />
