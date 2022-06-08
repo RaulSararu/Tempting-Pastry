@@ -1,11 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products/Products";
-import Top from "./components/Top/Top";
 import Checkout from "./components/Checkout/Checkout";
-import OurStory from "./components/OurStory/OurStory";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Homepage from "./components/Homepage/Homepage";
 import Login from "./components/LoginPage/Login";
 import Logout from "./components/Navbar/Logout";
 import Profile from "./components/Navbar/Profile";
@@ -22,6 +19,7 @@ import Main from "./components/Main/Main";
 import ContactLayout from "./components/Layouts/ContactLayout";
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
+import Shipping from "./components/Shipping/Shipping";
 
 const theme = createTheme({
   typography: {
@@ -44,7 +42,7 @@ function App() {
           <BrowserRouter>
             <ScrollToTop />
             <Navbar1 />
-           
+
             <Routes>
               <Route element = {< ContactLayout/>}>
                 {/* Top */}
@@ -52,28 +50,23 @@ function App() {
                 <Route path="/sendmail" element={<Mail />} />
               </Route>
 
-              <Route element = {< MainLayout/>}>
+              <Route element={<MainLayout />}>
                 <Route path="/" element={<Products />} />
               </Route>
 
-              <Route element = {< LoginLayout/>}>
+              <Route element={<LoginLayout />}>
                 <Route path="/login" element={<Login />} />
               </Route>
-
-              {/* <Route path="/home" element={<Homepage />} /> 
-          <Route path="/alkis" element={<Alkis />} /> */}
               <Route path="/products/:id" element={<Products />}></Route>
-              {/* <Route path="/our-story" element={<OurStory/>}></Route> */}
-              {/* <Route path="/find-us" element={<FindUs/>}></Route>
-          <Route path="/login" element={<Login/>}></Route>  */}
               <Route path="/profile" element={<Profile />}></Route>
               <Route path="/logout" element={<Logout />}></Route>
               <Route path="/google/:id" element={<Google />}></Route>
               <Route path="/cart" element={<Cartpage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/shipping" element={<Shipping />} />
+
               {/* <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> */}
-              {/* <Route path="/sendmail" element={<Mail/>}></Route>  */}
             </Routes>
           </BrowserRouter>
         </ThemeProvider>

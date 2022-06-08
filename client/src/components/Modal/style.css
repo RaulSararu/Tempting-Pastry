@@ -7,12 +7,11 @@
 .Modal .box-qty {
   display: flex;
   align-items: center;
-  /* background-color: beige; */
-  width: 70px;
+  width: 80px;
 }
 
 .Modal .box-qty p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-top: 2px;
 }
 
@@ -22,8 +21,11 @@
   justify-content: center;
   margin: 6px;
   border: none;
-  width: 30px;
+  width: 20px;
   height: 20px;
+  border-radius: 100%;
+  background-color: rgb(34, 27, 80);
+  color: white;
 }
 
 .Modal .cartItem {
@@ -39,6 +41,13 @@
   background-color: transparent;
   border-bottom: 1px solid rgba(128, 128, 128, 0.397);
 }
+
+.Modal .empty {
+  text-align: center;
+  padding: 30px;
+}
+
+
 
 .Modal .cart-container div {
   margin: 0;
@@ -66,6 +75,9 @@
 
 .Modal .cartprice {
   text-align: center;
-  width: 70px;
-  font-size: 0.8rem;
+  width: 80px;
+  font-size: 0.9rem;
+  /* background-color: aqua; */
+  
+
 }
