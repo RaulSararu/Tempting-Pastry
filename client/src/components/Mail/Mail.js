@@ -9,34 +9,34 @@ const Mail = () => {
     status: false,
   });
   const { userName, userEmail, message, status } = values;
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log("values name", userName);
     console.log("values email", userEmail);
     console.log("values message", message);
-    sendMail({ userName, userEmail, message })
-      .then(data => {
-        
-        if (data && data.err) { 
-          console.log("err", data.err); 
-        } else {
-          console.log("Success", data);
-          setValues({ ...values, status: true });
-        }
-      })
-      .catch(err=> console.log("Error in send mail", err)) 
-  }
+    sendMail({ userName, userEmail, message }, status, setValues)
+
+    if(sendMail){
+      setValues({...values, status: true})
+    }
+  };
+
+
+
+
+  console.log('Status now is', values.status)
   return (
-    <div className="Mail"> 
+    <div className="Mail">
       <div className="container-contact">
         <h3>Get in touch</h3>
         <form onSubmit={handleSubmit}>
           <label>Your Name: </label>
-          <input className="contact-input"
+          <input
+            className="contact-input"
             type="text"
             placeholder="Your Name"
             value={userName}
@@ -45,7 +45,8 @@ const Mail = () => {
           <br />
           <br />
           <label>Your Email: </label>
-          <input className="contact-input"
+          <input
+            className="contact-input"
             type="text"
             placeholder="enter your email"
             value={userEmail}
@@ -54,7 +55,8 @@ const Mail = () => {
           <br />
           <br />
           <label>Your message: </label>
-          <textarea className="contact-input"
+          <textarea
+            className="contact-input"
             id="message"
             rows="4"
             placeholder="How can we help you?"
@@ -65,17 +67,14 @@ const Mail = () => {
           <br />
           <button type="Submit"> Send your message</button>
         </form>
-        {status ? (
+        {values.status && (
           <div>
-            {" "}
             <h1>Message sent successfully</h1>
           </div>
-        ) : (
-          <div></div>
         )}
       </div>
-      </div> 
+    </div>
   );
 };
 
-export default Mail;  
+export default Mail;

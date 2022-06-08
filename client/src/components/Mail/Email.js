@@ -1,5 +1,5 @@
-export const sendMail=data=>{
-    console.log(data); 
+export const sendMail=(data, status, setValues)=>{
+    // console.log(data); 
     // console.log(JSON.stringify(data)); 
     return fetch('http://localhost:3000/mail/sendmail',{ 
         method:"POST",
@@ -7,9 +7,10 @@ export const sendMail=data=>{
             Accept:"application/json",
             "content-type":"application/json" 
         }, 
-        body:JSON.stringify(data)
+        body: JSON.stringify(data)
     }).then(response=>{
         console.log("response", response);
+        
         return response.json();
     }).catch(err=>console.log(err))
 }  
