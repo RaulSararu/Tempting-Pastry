@@ -16,3 +16,15 @@ export default function Logout() {
     <div>Logout</div>
   )
 } 
+
+//============
+
+// const logout = () => {
+//   axios.get("http:localhost:5000/auth/logout", {
+//       withCredentials: true
+//   }).then((res) => {
+//       if (res.data === "done") {
+//           window.location.href = "/";
+//       }
+//   });
+// };  

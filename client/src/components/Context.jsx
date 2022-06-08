@@ -50,6 +50,14 @@ export default function MyContextProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+    useEffect(() => {
+      axios.get("http:localhost:5000/getuser", { withCredentials: true }).then((res) => {
+        console.log(res);
+        if (res.data) {
+          setUserObject(res.data); 
+        }
+      });
+    }, []);
 
   return (
     <MyContext.Provider

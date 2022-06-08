@@ -9,16 +9,16 @@ import Profile from "./components/Navbar/Profile";
 import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import React from "react";
-import Context from "./components/Context";
+import React, { useContext } from "react";
+import Context, {MyContext} from "./components/Context";
 import Cartpage from "./components/Cartpage/Cartpage";
 /* import EmailConfirm from "./components/EmailConfirm/EmailConfirm";  */
 import Mail from "./components/Mail/Mail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-
+import Main from "./components/Main/Main";
+import ContactLayout from "./components/Layouts/ContactLayout";
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
-import ContactLayout from "./components/Layouts/ContactLayout";
 import Shipping from "./components/Shipping/Shipping";
 
 const theme = createTheme({
@@ -32,7 +32,9 @@ const theme = createTheme({
   },
 });
 
-function App() {
+function App() { 
+  const userObject = useContext(MyContext);
+
   return (
     <div className="App">
       <Context>
@@ -42,7 +44,7 @@ function App() {
             <Navbar1 />
 
             <Routes>
-              <Route element={<ContactLayout />}>
+              <Route element = {< ContactLayout/>}>
                 {/* Top */}
                 {/* Main */}
                 <Route path="/sendmail" element={<Mail />} />
