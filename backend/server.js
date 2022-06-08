@@ -162,7 +162,7 @@ app.use("/users", require("./src/routes/register"));
    }
  })
 
- app.use('/mail', require('./src/routes/mail')) 
+ app.use('/mail', require('./src/routes/mail'))  
 
 
 
