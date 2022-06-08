@@ -78,17 +78,26 @@ export default function Checkout() {
               </form>
               <div className="return-cart">
                 <Link to="/cart">
-                  <p style={{color: "rgb(34, 27, 80)"}}>
+                  <p style={{ color: "rgb(34, 27, 80)" }}>
                     <ArrowBackIcon
                       sx={{ marginRight: "5px", marginTop: "-3px" }}
                     />{" "}
                     RETURN TO CART
                   </p>
                 </Link>
-                <Button sx={{ fontFamily: "sans-serif",backgroundColor: "rgb(34, 27, 80)" }} variant="contained">
-                  {" "}
-                  CONTINUE TO SHIPPING
-                </Button>
+
+                <Link to="/shipping">
+                  <Button
+                    sx={{
+                      fontFamily: "sans-serif",
+                      backgroundColor: "rgb(34, 27, 80)",
+                    }}
+                    variant="contained"
+                  >
+                    {" "}
+                    CONTINUE TO SHIPPING
+                  </Button>
+                </Link>
               </div>
             </Grid>
             <Grid item xs={1} />
@@ -99,45 +108,48 @@ export default function Checkout() {
             container
             sx={{ backgroundColor: "rgb(255, 251, 230)" }}
           >
-            {cart.map((item) => (
-              <div className="checkout-container">
-                <div className="box">
-                  <div className="box-qty">{item.qty}</div>
-                  <div className="image">
-                    <img src={item.image} alt="" />
-                  </div>
-                  <div className="cart-title">{item.name}</div>
-                  <div className="price">
-                    <span>{item.qty * item.price} €</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            <div className="total">
-              {cart.length !== 0 && (
-                <>
-                  <div className="price-devision">
-                    <p>subtotal</p>
+            <Grid item xs={1} />
+            <Grid item xs={10} container sx={{ margin: "30px 0" }}>
+              {cart.map((item) => (
+                <Grid item xs={12}>
+                  <div className="flex1">
+                    <div className="box-qty">{item.qty}</div>
+                    <div className="image">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <div className="cart-title">{item.name}</div>
                     <div className="price">
-                      <span> {itemsPrice} €</span>
+                      <span>{item.qty * item.price} €</span>
                     </div>
                   </div>
-                  <div className="price-devision">
-                    <p>shipping</p>
-                    <span>{shippingPrice} €</span>
-                  </div>
-                  <div className="price-devision">
-                    <p>total </p>
-                    <div>
-                      <span>{totalPrice.toFixed(2)} €</span>
+                </Grid>
+              ))}
+
+              <Grid item xs={12}>
+                {cart.length !== 0 && (
+                  <>
+                    <div className="price-devision">
+                      <div className="price-box">
+                        <p>subtotal</p>
+                        <span> {itemsPrice} €</span>
+                      </div>
+
+                      <div className="price-box">
+                        <p>shipping</p>
+                        <span>{shippingPrice} €</span>
+                      </div>
+
+                      <div className="price-box">
+                        <p>total </p>
+                        <span>{totalPrice.toFixed(2)} €</span>
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
+                  </>
+                )}
+              </Grid>
+            </Grid>
+            <Grid item xs={1} />
           </Grid>
-          <Grid item xs={2} />
         </Grid>
       </Grid>
     </div>

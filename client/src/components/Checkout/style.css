@@ -1,78 +1,56 @@
-form {
-  /* background-color: rgb(196, 255, 235); */
- 
+.Checkout form {
+  /* background-color: aqua; */
 }
 
+::placeholder {
+  font-size: 0.9rem;
+}
 
-
-form input {
-  background-color: transparent;
+.Checkout form input {
   margin-top: 25px;
   border: none;
   border-bottom: 1px solid rgba(128, 128, 128, 0.562);
 }
 
-
-form input:not(.name){
-    width: 100%;
-
+form input:not(.name) {
+  width: 100%;
 }
 
-.name {
-    display: inline-block;
-    margin: 0.5%;
-}
-
- #firstName {
+/* #firstName {
   width: 49%;
 }
 
- #lastName {
+#lastName {
   width: 49%;
- 
-}
-
+} */
 
 .return-cart {
-    margin-top: 30px;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.return-cart p {
-    margin-top: 20px;
-     
-}
-
-
-/* products  */
-
-
-.Checkout .checkout-container {
-  padding: 40px;
-
-  /* margin-top: 50px; */
-  /* display: flex; */
-  width: 100%;
-  height: 10px;
-}
-
-.Checkout .box {
+  margin-top: 30px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
-  height: 120px;
 }
 
-.Checkout .box .image {
+.return-cart p {
+  margin-top: 15px;
+}
+
+/* products  */
+
+.flex1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Checkout .image {
   width: 100px;
   height: 100px;
+  /* background-color: black; */
 }
 
-.Checkout .box .image img {
+.Checkout .image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -84,32 +62,30 @@ form input:not(.name){
   align-items: center;
   width: 25px;
   height: 25px;
-  background-color:  rgb(34, 27, 80);
+  background-color: rgb(34, 27, 80);
   color: white;
   border-radius: 100%;
 }
 
 .Checkout .price {
-  margin-left: 80px;
+  text-align: end;
+  width: 45px;
 }
 
 .Checkout .cart-title {
-  width: 220px;
-  background-color: rgb(255, 251, 230);
+  margin-left: 10px;
+  width: 320px;
 }
-
-.total {
-  margin-top: 50px;
-  width: 100%;
-  border-top: 1px solid rgba(128, 128, 128, 0.486);
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-
-}
-
 
 .price-devision {
+  border-top: 1px solid rgba(128, 128, 128, 0.329);
+  margin-top: 30px;
+  padding: 50px 0 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-box {
   display: flex;
   justify-content: space-between;
 }

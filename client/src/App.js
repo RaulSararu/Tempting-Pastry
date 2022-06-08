@@ -19,6 +19,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
 import ContactLayout from "./components/Layouts/ContactLayout";
+import Shipping from "./components/Shipping/Shipping";
 
 const theme = createTheme({
   typography: {
@@ -61,6 +62,8 @@ function App() {
               <Route path="/cart" element={<Cartpage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/shipping" element={<Shipping />} />
+
               {/* <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> */}
             </Routes>
           </BrowserRouter>
