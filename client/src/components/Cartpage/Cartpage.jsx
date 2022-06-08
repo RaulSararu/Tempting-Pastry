@@ -6,6 +6,7 @@ import { MyContext } from "../Context";
 
 export default function Cartpage() {
   const { cart, removeItem, addToCart} = useContext(MyContext);
+ 
 
   return (
     <div className="Cartpage">
@@ -68,7 +69,7 @@ export default function Cartpage() {
             subtotal <span className="total-price">$</span>
           </p>
           <Link to="/checkout">
-            <Button sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>
+            <Button  sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>
           </Link>
         </Grid>
         <Grid item xs={2} />

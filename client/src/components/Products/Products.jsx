@@ -27,7 +27,7 @@ export default function Products() {
 
   const [active,setActive] = useState(0)
   return (
-    <div className="Products">
+    <div className="Products" id="products">
       <Grid container >
         <Grid item xs={12} container>
           <Grid item xs={4} />

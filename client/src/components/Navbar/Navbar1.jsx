@@ -80,8 +80,8 @@ const ResponsiveAppBar = () => {
                 md: "flex",
                 backgroundColor: "#fffbe6",
                 borderRadius: "50%",
-                height: "100px",
-                width: "100px",
+                height: "80px",
+                width: "80px",
                 marginTop: "15px",
                 marginBottom: "15px",
               },
@@ -92,7 +92,7 @@ const ResponsiveAppBar = () => {
               alt=""
               style={{
                 marginTop: "",
-                height: "100px",
+                height: "81px",
                 marginLeft: "",
               }}
             />
@@ -180,7 +180,7 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ marginLeft: "auto" }} variant="contained">
          
-            <ShoppingCartOutlinedIcon onClick={toggleShow} sx={{ fontSize: 50, color: "#fffbe6" }} />{cart.length}
+            <ShoppingCartOutlinedIcon onClick={toggleShow} sx={{ fontSize: 30, color: "#fffbe6" }} />{cart.length}
        
             <Modal toggleShow={toggleShow} topRightModal={topRightModal} setTopRightModal={setTopRightModal}/>
             
@@ -188,7 +188,7 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 0, marginLeft: "30px" }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, size:"medium" }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -229,7 +229,7 @@ const ResponsiveAppBar = () => {
           </Box>
           <Link to="/sendmail">
             <Box sx={{ marginLeft: "35px" }} variant="contained">
-              <ContactMailIcon sx={{ fontSize: 45, color: "#fffbe6" }} />
+              <ContactMailIcon sx={{ fontSize: 30, color: "#fffbe6" }} />
             </Box>
           </Link>
         </Toolbar>

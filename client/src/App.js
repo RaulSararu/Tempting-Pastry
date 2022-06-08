@@ -19,7 +19,7 @@ import Cartpage from "./components/Cartpage/Cartpage";
 import Mail from "./components/Mail/Mail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Main from "./components/Main/Main";
-import Layout from "./components/Layouts/ContactLayout";
+import ContactLayout from "./components/Layouts/ContactLayout";
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
 
@@ -46,7 +46,7 @@ function App() {
             <Navbar1 />
            
             <Routes>
-              <Route element = {< Layout/>}>
+              <Route element = {< ContactLayout/>}>
                 {/* Top */}
                 {/* Main */}
                 <Route path="/sendmail" element={<Mail />} />
