@@ -13,7 +13,7 @@ import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React, { useContext } from "react";
-import Context from "./components/Context";
+import Context, {MyContext} from "./components/Context";
 import Cartpage from "./components/Cartpage/Cartpage";
 /* import EmailConfirm from "./components/EmailConfirm/EmailConfirm";  */
 import Mail from "./components/Mail/Mail";
@@ -34,8 +34,8 @@ const theme = createTheme({
   },
 });
 
-function App() {
-  const userObject = useContext(Context);
+function App() { 
+  const userObject = useContext(MyContext);
 
   return (
     <div className="App">
