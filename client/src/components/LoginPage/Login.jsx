@@ -3,106 +3,106 @@ import { Link, useNavigate } from "react-router-dom";
 import Google from "../../assets/images/login/google3.png";
 import Twitter from "../../assets/images/login/twitter2.jpg";
 import "./Login.css";
-import Axios from "axios";
-import { MyContext } from "../Context";
 import axios from "axios";
+import { MyContext } from "../Context";
 
 
 function Auth() {
-  
-  
+  const [registerUsername, setRegisterUsername] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const [registerAddress, setRegisterAddress] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const { currentUser, setCurrentUser } = useContext(MyContext);
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  
  
-
-  
 
   const navigate = useNavigate();
+
+  //----------------------------------- 
   // Register
-  // const register = () => {
+  const register = async () => {
+    console.log('this is the register function')
+    const response = await axios.post(
+      "/register/register", 
+      {
+        username: registerUsername,
+        address: registerAddress,
+        password: registerPassword,
+        email: registerEmail
+      })
+    
+      console.log('Register: response is', response)
+      // .then((res) => console.log(res));
+  }; 
 
-  //   Axios({
-  //     method: "POST",
-  //     data: {
-  //       username: registerUsername,
-  //       address: registerAddress,
-  //       password: registerPassword,
-  //       email: registerEmail
-  //     },
-  //     withCredentials: true,
-  //     url: "http://localhost:5000/register",
-  //   }).then((res) => console.log(res));
+  //=======================================================
+
+  // const [data, setData] = useState({
+  //   username: registerUsername,
+  //   address: registerAddress,
+  //   password: registerPassword,
+  //   email: registerEmail,
+  // });
+
+  // const register = async (e) => {
+  //   const response = await axios.post("/users/register", data);
+  //   console.log("data", data); 
+  //   console.log("response from register is", response);
   // };
-  const [data, setData] = useState({
-    username: registerUsername,
-    address: registerAddress,
-    password: registerPassword,
-    email: registerEmail,
-  });
-
-  const register = async (e) => {
-    const response = await axios.post("/users/register", data);
-    console.log("data", data); 
-    console.log("response from register is", response);
-  };
  
-  const [error, setError] = useState("")
-  const [msg, setMsg]= useState("")
+  //  const [error, setError] = useState("")
+  //  const [msg, setMsg]= useState("")
 
-  const handleSubmit = async(e)=> { 
-    e.preventDefault();
-
-    try {
-      const url = "http://localhost:5000/api/users";
-      const {data:res} = await axios.post(url, data);
-      setMsg(res.message);
+  // const handleSubmit = async(e)=> { 
+  //   e.preventDefault();
+  //   try {
+  //     const url = "http://localhost:5000/api/users";
+  //     const {data:res} = await Axios.post(url, data); 
+  //     setMsg(res.message);
       
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >=400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message)
-      }
-    }
-  };  
+  //   } catch (error) {
+  //     if (
+  //       error.response &&
+  //       error.response.status >=400 &&
+  //       error.response.status <= 500
+  //     ) {
+  //       setError(error.response.data.message)
+  //     }
+  //   }
+  // };   
 
 
-  // Login with Social Media
-  const Login = () => {
-    Axios({
-      method: "POST",
-      data: {
+  // Login 
+  const login = () => {
+    axios.post(
+      "/login/login",
+      {
         username: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:5000/login",
-    }).then((res) =>
+        password: loginPassword
+      }
+    ).then((res) =>
    { if (res.data.success) { 
      const user= res.data.user
       setCurrentUser({username:user.username, email:user.email, id: user._id})
       navigate("/") 
-      // console.log('Response', res); 
      } }   
-    );
+    ); 
   };
 
  console.log("Current user", currentUser); 
 
+ // Login with Social Media
+
   const googleLogin = () => {
-    window.open("http://localhost:5000/auth/google", "_self");
+    window.open("http://localhost:5000/auth/google"); 
   };
   const twitterLogin = () => {
-    window.location.href = "http://localhost:5000/auth/twitter";
+     window.location.href = "http://localhost:5000/auth/twitter"; 
+    
   };
+
+  const context = useContext(MyContext)
 
   return (
     <div className="login">
@@ -132,7 +132,7 @@ function Auth() {
               placeholder="Password"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
-            <button className="submit" onClick={Login}>
+            <button className="submit" onClick={login}>
               Login
             </button>
           </div>
@@ -142,40 +142,40 @@ function Auth() {
           <div className="or">OR</div>
         </div>
 
-        <div className="right" onSubmit={handleSubmit}>
+        {/* <div className="right" onSubmit={handleSubmit}> */}
+        <div className="right"> 
           <h3>Register</h3>
           <input
             type="text"
             placeholder="Username"
-            onChange={(e) => setData({ ...data, username: e.target.value })}
-            required
-            value={data.username}
-          
+            // onChange={(e) => setData({ ...data, username: e.target.value })}
+            // value={data.username}
+            onChange={(e) => setRegisterUsername(e.target.value)} 
           />
-
           <input
             type="text"
             placeholder="Address"
-            onChange={(e) => setData({ ...data, address: e.target.value })}
-            value={data.address}
+            // onChange={(e) => setData({ ...data, address: e.target.value })}
+            // value={data.address}
+            onChange={(e) => setRegisterAddress(e.target.value)} 
           />
           <input
             type="password"
             placeholder="Password"
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            value={data.password}
-            required 
+            // onChange={(e) => setData({ ...data, password: e.target.value })}
+            // value={data.password}
+            onChange={(e) => setRegisterPassword(e.target.value)}
           />
           <input
             type="email"
-            id="password"
             placeholder="Email"
-            onChange={(e) => setData({ ...data, email: e.target.value })}
-            value={data.email}
+            // onChange={(e) => setData({ ...data, email: e.target.value })}
+            // value={data.email}
+            onChange={(e) => setRegisterEmail(e.target.value)} 
           />
-          {error && <div className="error_msg">{error}</div>}
-						{msg && <div className="success_msg">{msg}</div>}
-          <button className="submit" onClick={register}>
+            {/* {error && <div className="error_msg">{error}</div>}
+						{msg && <div className="success_msg">{msg}</div>} */}
+          <button className="submit" onClick={register}> 
             Submit 
           </button>
         </div>
@@ -185,3 +185,4 @@ function Auth() {
 }
 
 export default Auth;
+  

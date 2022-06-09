@@ -34,11 +34,11 @@ export default function ScrollToTop() {
                 width:"60px",
                 fontSize:"20px",
                 background:"white",
-                borderRadius:"50%"
+                borderRadius:"50%",
             }}
             onClick={scrollUp}
             >
-                <ArrowUpwardIcon fontSize="large"/>
+                <ArrowUpwardIcon sx={{color:"rgb(34, 27, 80)"}} fontSize="large"/>
             </Button>
         )}
     </div>

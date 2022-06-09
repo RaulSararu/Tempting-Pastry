@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
-import "./cartstyle.css"
+import "./cartstyle.css";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Context";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function Cartpage() {
-  const { cart, removeItem, addToCart} = useContext(MyContext);
- 
+  const { cart, removeItem, addToCart, itemsPrice, handleRemove } =
+    useContext(MyContext);
 
   return (
     <div className="Cartpage">
-      <Grid container spacing={3}>
+      <Grid container>
         <Grid item xs={2} />
         <Grid
           item
           xs={5}
-          style={{
+          sx={{
             // backgroundColor: "lightgrey",
             // borderRight: "1px solid grey",
           }}
@@ -24,13 +25,13 @@ export default function Cartpage() {
             CART
           </Typography>
           <Grid item xs={12} container>
-            <Grid item xs={7}>
+            <Grid item xs={7} >
               Item
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={4} >
               QTY
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={1} >
               Price
             </Grid>
           </Grid>
@@ -50,27 +51,43 @@ export default function Cartpage() {
               </div>
 
               <div className="cartprice">
-              <span>{item.qty * item.price} $</span>
+                <span>{item.qty * item.price} €</span>
+                <CloseIcon
+                  onClick={() => handleRemove(item)}
+                  sx={{ marginLeft: "10px", fontSize:"1.2rem", cursor:"pointer" }}
+                />
               </div>
             </div>
           ))}
 
           {}
         </Grid>
-        <Grid item xs={3} >
-          <Typography pb={4} variant="h4">
-            ORDER SUMMARY
-          </Typography>
+        <Grid item xs={3} container >
+          <Grid item xs={1} />
+          <Grid item xs={11}>
+            <Typography pb={4} variant="h4">
+              ORDER SUMMARY
+            </Typography>
 
-          <p>shipping and taxes calculated at checkout</p>
-          <hr />
+            <p>shipping and taxes calculated at checkout</p>
+            <hr />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>subtotal</p>
+              <span className="total-price">{itemsPrice} €</span>
+            </div>
 
-          <p>
-            subtotal <span className="total-price">$</span>
-          </p>
-          <Link to="/checkout">
-            <Button  sx={{fontFamily: "sans-serif" }} variant="contained">CHECKOUT</Button>
-          </Link>
+            <Link to="/checkout">
+              <Button
+                sx={{
+                  fontFamily: "sans-serif",
+                  backgroundColor: "rgb(34, 27, 80)",
+                }}
+                variant="contained"
+              >
+                CHECKOUT
+              </Button>
+            </Link>
+          </Grid>
         </Grid>
         <Grid item xs={2} />
       </Grid>
