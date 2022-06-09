@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Google from "../../assets/images/login/google3.png";
 import Twitter from "../../assets/images/login/twitter2.jpg";
@@ -8,10 +8,6 @@ import { MyContext } from "../Context";
 import axios from "axios";
 
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/register';
-
 function Auth() {
   
   
@@ -20,47 +16,12 @@ function Auth() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const { currentUser, setCurrentUser } = useContext(MyContext);
-
-  const userRef = useRef();
-  const errRef = useRef();
-
   const [registerUsername, setRegisterUsername] = useState("");
-  const [validName, setValidName] = useState(false)
-  const [userFocus, setUserFocus] = useState(false)
-
   const [registerPassword, setRegisterPassword] = useState("");
-  const [validPwd, setValidPwd] = useState(false)
-  const [pwdFocus, setPwdFocus] = useState(false)
+  
+ 
 
-  const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    userRef.current.focus();
-}, [])
-
-useEffect(() => {
-    setValidName(USER_REGEX.test(registerUsername));
-}, [registerUsername])
-
-useEffect(() => {
-    setValidPwd(PWD_REGEX.test(registerPassword));
-    
-}, [registerPassword])
-
-useEffect(() => {
-    setErrMsg('');
-}, [registerUsername, registerPassword])
-
-function handleChangeUsername(e) {
-  setData({ ...data, username: e.target.value })
-  setRegisterUsername(e.target.value)
-}
-
-function handleChangePassword(e) {
-  setData({ ...data, password: e.target.value })
-  setRegisterPassword(e.target.value)
-}
+  
 
   const navigate = useNavigate();
   // Register
@@ -96,39 +57,6 @@ function handleChangePassword(e) {
 
   const handleSubmit = async(e)=> { 
     e.preventDefault();
-
-    const v1 = USER_REGEX.test(registerUsername);
-        const v2 = PWD_REGEX.test(registerPassword);
-        if (!v1 || !v2) {
-            setErrMsg("Invalid Entry");
-            return;
-        }
-        try {
-            const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ registerUsername, registerPassword}),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            console.log(response?.data);
-            console.log(response?.accessToken);
-            console.log(JSON.stringify(response))
-            setSuccess(true);
-            //clear state and controlled inputs
-            //need value attrib on inputs for this
-            setRegisterUsername("");
-            setRegisterPassword("")
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
-            } else {
-                setErrMsg('Registration Failed')
-            }
-            errRef.current.focus();
-        }
 
     try {
       const url = "http://localhost:5000/api/users";
@@ -215,31 +143,15 @@ function handleChangePassword(e) {
         </div>
 
         <div className="right" onSubmit={handleSubmit}>
-        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <h3>Register</h3>
-          {/* {<label htmlFor="username">
-            Username:
-          </label>} */}
           <input
             type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
             placeholder="Username"
-            onChange={handleChangeUsername}
+            onChange={(e) => setData({ ...data, username: e.target.value })}
             required
             value={data.username}
-            aria-invalid={validName ? "false" : "true"}
-            aria-describedby="uidnote"
-            onFocus={() => setUserFocus(true)}
-            onBlur={() => setUserFocus(false)}
+          
           />
-          <p id="uidnote" className={userFocus && registerUsername && !validName ? "instructions" : "offscreen"}>
-                           
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Letters, numbers, underscores, hyphens allowed.
-                        </p>
 
           <input
             type="text"
@@ -250,21 +162,10 @@ function handleChangePassword(e) {
           <input
             type="password"
             placeholder="Password"
-            onChange={handleChangePassword}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
             value={data.password}
-            required
-            aria-invalid={validPwd ? "false" : "true"}
-            aria-describedby="pwdnote"
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
+            required 
           />
-
-            <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-                          
-                            8 to 24 characters.<br />
-                            Must include uppercase and lowercase letters, a number and a special character.<br />
-                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
-                        </p>
           <input
             type="email"
             id="password"
