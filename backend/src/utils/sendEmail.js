@@ -1,26 +1,42 @@
-const mailer = require('nodemailer')
+const mailer = require("nodemailer");
+require("dotenv").config();
+const { google } = require("googleapis");
 
-module.exports = async (email, subject, text) => {
-   try {
-      const transporter= mailer.createTransport({
-         host:process.env.HOST,
-         service:process.env.SERVICE,
-         post: Number(process.env.EMAIL_PORT), 
-         secure: Boolean(process.env.SECURE), 
-         auth:{
-            user:process.env.GOOGLE_USER, 
-            pass: process.env.GOOGLE_PASSWORD 
-         }
-      }); 
-      await transporter.sendMail({
-         from: process.env.GOOGLE_USER, 
-         to:email,
-         subject: subject, 
-         html: `<a href="${text}"> Please confirm your email</a>` 
-      });
-      console.log("Email send successfully");
-   } catch (error) {
-      console.log("Email not send");
-      console.log(error);
-   }
+const OAuth2 = google.auth.OAuth2;
+const OAuth2_client = new OAuth2(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  process.env.REDIRECT_URI
+);
+OAuth2_client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+const accessToken = OAuth2_client.getAccessToken();
+
+async function sendEmail(email, subject, text) {
+  console.log("Email is", email.email);
+  console.log("Subject is", subject);
+  try {
+    const transporter = mailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: process.env.GOOGLE_USER,
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: accessToken,
+      },
+    });
+    await transporter.sendMail({
+      from: email.email,
+      to: process.env.GOOGLE_USER,
+      subject: subject,
+      html: `<a href="${text}"> Please confirm your email</a>`,
+    });
+    console.log("Email send successfully");
+  } catch (error) {
+    console.log("Email not send");
+    console.log(error);
+  }
 }
+
+module.exports = sendEmail;

@@ -12,7 +12,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React, { useContext } from "react";
 import Context, {MyContext} from "./components/Context";
 import Cartpage from "./components/Cartpage/Cartpage";
-/* import EmailConfirm from "./components/EmailConfirm/EmailConfirm";  */
+import EmailConfirm from "./components/EmailConfirm/EmailConfirm"; 
 import Mail from "./components/Mail/Mail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Main from "./components/Main/Main";
@@ -66,7 +66,7 @@ function App() {
               <Route path="*" element={<PageNotFound />} />
               <Route path="/shipping" element={<Shipping />} />
 
-              {/* <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> */}
+              <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> 
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
