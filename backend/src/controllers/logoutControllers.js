@@ -4,7 +4,7 @@ const User =require("../models/User")
 // exports.Logout= ()=>{
 //     axios.get("http://localhost:5000/auth/logout").then(res =>{
 //         if(res.data) {
-//             window.location.href="/"
+//             window.location.hre1f="/"
 //         }
 //     })
 // }

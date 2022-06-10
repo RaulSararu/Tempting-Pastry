@@ -31,46 +31,12 @@ function Auth() {
         password: registerPassword,
         email: registerEmail
       })
-    
+      if(response.data.success) alert('One more step, please check your email') 
+
       console.log('Register: response is', response)
-      // .then((res) => console.log(res));
+      // .then((res) => console.log(res));  
   }; 
 
-  //=======================================================
-
-  // const [data, setData] = useState({
-  //   username: registerUsername,
-  //   address: registerAddress,
-  //   password: registerPassword,
-  //   email: registerEmail,
-  // });
-
-  // const register = async (e) => {
-  //   const response = await axios.post("/users/register", data);
-  //   console.log("data", data); 
-  //   console.log("response from register is", response);
-  // };
- 
-  //  const [error, setError] = useState("")
-  //  const [msg, setMsg]= useState("")
-
-  // const handleSubmit = async(e)=> { 
-  //   e.preventDefault();
-  //   try {
-  //     const url = "http://localhost:5000/api/users";
-  //     const {data:res} = await Axios.post(url, data); 
-  //     setMsg(res.message);
-      
-  //   } catch (error) {
-  //     if (
-  //       error.response &&
-  //       error.response.status >=400 &&
-  //       error.response.status <= 500
-  //     ) {
-  //       setError(error.response.data.message)
-  //     }
-  //   }
-  // };   
 
 
   // Login 
@@ -102,7 +68,7 @@ function Auth() {
     
   };
 
-  const context = useContext(MyContext)
+  // const context = useContext(MyContext) 
 
   return (
     <div className="login">

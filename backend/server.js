@@ -12,7 +12,7 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 
 const IUser = require("./src/models/IUser")
 const User =require('./src/models/User')  
-const app= express(); 
+const app= express();  
 
 // errorHandler
 const{errorHandler} = require('./src/middleware/errorMiddleware');
@@ -28,13 +28,13 @@ app.get("/", (req, res) => res.send("Tempting Pastry"))
 // MongoConnect
 const connectToDb = require('./src/config/db');
 connectToDb()
-const {application} = require('express');
+// const {application} = require('express'); 
 
 
 //Middleware
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.json());
 app.use(cors({origin : "http://localhost:3000", credentials: true}))
@@ -72,6 +72,11 @@ require('./src/config/passportConfig')(passport);
 app.use('/register', require('./src/routes/register'))
 app.use('/login', require('./src/routes/login')) 
 app.use('/logout', require('./src/routes/logout')) 
+app.use('/confirmEmail', require('./src/routes/confirmEmail'))
+app.use('/auth', require('./src/routes/auth')); 
+app.use('/refresh', require('./src/routes/refresh'));
+
+app.use("/uploads",express.static('./src/uploads'))
 
 //Google strategy
 passport.use(new GoogleStrategy({
@@ -101,14 +106,14 @@ passport.use(new GoogleStrategy({
   }));
 
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile'] })), 
+  passport.authenticate('google', { scope: ['profile'] }))
 
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('http://localhost:3000');
-  }),  
+  }) 
 
 // // Twitter Strategy
 
@@ -162,9 +167,7 @@ app.use("/users", require("./src/routes/register"));
    }
  })
 
- app.use('/mail', require('./src/routes/mail'))  
-
-
+ app.use('/mail', require('./src/routes/mail'))   
 
  // Starting the server  
 app.listen("5000", ()=> {
