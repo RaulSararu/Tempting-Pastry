@@ -14,6 +14,7 @@ const accessToken = OAuth2_client.getAccessToken();
 async function sendEmail(email, subject, text) {
   console.log("Email is", email.email);
   console.log("Subject is", subject);
+ 
   try {
     const transporter = mailer.createTransport({
       service: "gmail",
@@ -27,8 +28,8 @@ async function sendEmail(email, subject, text) {
       },
     });
     await transporter.sendMail({
-      from: email.email,
-      to: process.env.GOOGLE_USER,
+      to: email.email,
+      from: process.env.GOOGLE_USER,  
       subject: subject,
       html: `<a href="${text}"> Please confirm your email</a>`,
     });
