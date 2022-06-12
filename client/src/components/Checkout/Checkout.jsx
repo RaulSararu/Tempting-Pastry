@@ -4,9 +4,25 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./style.css";
 import { MyContext } from "../Context";
+import { useState } from "react";
 
 export default function Checkout() {
   const { cart, itemsPrice, shippingPrice, totalPrice } = useContext(MyContext);
+
+  const [postData,setPostData] = useState({
+    firstName:"",
+    lastName:"",
+    address:"",
+    apartment:"",
+    city:"",
+    country:"",
+    zipCode:"",
+    phone:""
+
+
+  })
+
+
 
   return (
     <div className="Checkout">
@@ -40,6 +56,8 @@ export default function Checkout() {
               <form>
                 <div className="d-flex w-100">
                   <input
+                  value={postData.firstName}
+                  onChange={(e) => setPostData({...postData, firstName: e.target.value})}
                     type="text"
                     name=""
                     id="firstName"
@@ -86,7 +104,7 @@ export default function Checkout() {
                   </p>
                 </Link>
 
-                <Link to="/shipping">
+                <Link to="/payment">
                   <Button
                     sx={{
                       fontFamily: "sans-serif",
@@ -95,7 +113,7 @@ export default function Checkout() {
                     variant="contained"
                   >
                     {" "}
-                    CONTINUE TO SHIPPING
+                    CONTINUE TO PAYMENT
                   </Button>
                 </Link>
               </div>

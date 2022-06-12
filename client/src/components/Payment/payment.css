@@ -1,0 +1,42 @@
+.Payment {
+    margin-top: 40px;
+}
+
+.bank-image {
+    width: 60px;
+    height: 40px;
+    border: 1px solid rgba(128, 128, 128, 0.356);
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+}
+
+
+
+.bank-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.bank-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+
+.box {
+    padding: 20px;
+    /* background-color: red; */
+}
+
+.box-delivery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-delivery div {
+    border-bottom: 1px solid grey;
+}
