@@ -7,21 +7,9 @@ import { MyContext } from "../Context";
 import { useState } from "react";
 
 export default function Checkout() {
-  const { cart, itemsPrice, shippingPrice, totalPrice } = useContext(MyContext);
+  const { cart, itemsPrice, shippingPrice, totalPrice, postData,setPostData } = useContext(MyContext);
 
-  const [postData,setPostData] = useState({
-    firstName:"",
-    lastName:"",
-    address:"",
-    apartment:"",
-    city:"",
-    country:"",
-    zipCode:"",
-    phone:""
-
-
-  })
-
+  
 
 
   return (
@@ -65,6 +53,8 @@ export default function Checkout() {
                     placeholder="FIRST NAME"
                   />
                   <input
+                  value={postData.lastName}
+                  onChange={(e) => setPostData({...postData, lastName: e.target.value})}
                     type="text"
                     name=""
                     id="lastName"
@@ -72,11 +62,16 @@ export default function Checkout() {
                     placeholder="LAST NAME"
                   />
                 </div>
-                <input type="text" name="" id="" placeholder="ADDRESS" />
-                <input type="text" name="" id="" placeholder="APARTMENT" />
-                <input type="text" name="" id="" placeholder="CITY" />
+                <input value={postData.address}
+                onChange={(e) => setPostData({...postData, address: e.target.value})}
+                type="text" name="" id="" placeholder="ADDRESS" />
+                <input  onChange={(e) => setPostData({...postData, apartment: e.target.value})} value={postData.apartment} type="text" name="" id="" placeholder="APARTMENT" />
+                <input value={postData.city} onChange={(e) => setPostData({...postData, city: e.target.value})}  type="text" name="" id="" placeholder="CITY" />
                 <div className="d-flex w-100">
                   <input
+                  value={postData.country}
+                  onChange={(e) => setPostData({...postData, country: e.target.value})}
+                  
                     type="text"
                     name=""
                     id=""
@@ -84,6 +79,8 @@ export default function Checkout() {
                     placeholder="COUNTRY"
                   />
                   <input
+                  value={postData.zipCode}
+                  onChange={(e) => setPostData({...postData, zipCode: e.target.value})}
                     type="text"
                     name=""
                     id=""
@@ -92,7 +89,7 @@ export default function Checkout() {
                   />
                 </div>
 
-                <input type="tel" name="" id="" placeholder="PHONE" />
+                <input value={postData.phone} onChange={(e) => setPostData({...postData, phone: e.target.value})} type="tel" name="" id="" placeholder="PHONE" />
               </form>
               <div className="return-cart">
                 <Link to="/cart">

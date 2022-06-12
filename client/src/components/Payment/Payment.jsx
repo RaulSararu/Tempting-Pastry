@@ -36,7 +36,7 @@ export default function Payment() {
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="direct"
-                  name="radio-buttons-group"
+                  name="radio-buttons-group" onChange={(a,b) => console.log('test',  a ,b)}
                 >
                   <div className="bank-box">
                     <FormControlLabel     

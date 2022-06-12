@@ -7,11 +7,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./confirm.css";
 
 export default function Confirm() {
-  const { cart, shippingPrice, totalPrice, handleRemove } =
+  const { cart, shippingPrice, totalPrice, handleRemove,postData } =
     useContext(MyContext);
   return (
     <div className="Confirm">
-      <Container maxWidth="md" sx={{ backgroundColor: "lightgray" }}>
+      <Container maxWidth="md" sx={{padding:"20px 0 50px" }}>
         <Typography variant="h6" align="center">
           CHECKOUT
         </Typography>
@@ -48,12 +48,22 @@ export default function Confirm() {
           sx={{ borderBottom: "1px solid rgba(128, 128, 128, 0.397)" }}
         >
           DELIVERY ADDRESS
+        <div className="address-box">
+          <p>{postData.firstName} {postData.lastName}</p>
+          <p>{postData.address} {postData.apartment}</p>
+          <p>{postData.zipCode} {postData.city}</p>
+          <p>{postData.country}</p>
+          <p>{postData.phone}</p>
+        </div>
         </Typography>
 
         <Typography
           sx={{ borderBottom: "1px solid rgba(128, 128, 128, 0.397)" }}
         >
           PAYMENT METHOD
+
+
+
         </Typography>
 
         <div className="box-flex">

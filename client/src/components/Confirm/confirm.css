@@ -1,5 +1,5 @@
 .Confirm {
-  margin-top: 40px;
+  margin: 40px 0 60px;
 }
 
 .flex-container {
@@ -55,4 +55,9 @@
     margin-top: 20px;
     display: flex;
     justify-content:space-between;
+}
+
+.address-box {
+  display: flex;
+  flex-direction: column;
 }
