@@ -71,7 +71,7 @@ function Auth() {
   // const context = useContext(MyContext) 
 
   return (
-    <div className="login">
+    <div className="login" data-testid="test-login">
       <h1 className="loginTitle">Choose a login Method</h1>
       <div className="wrapper">
         <div className="left">
