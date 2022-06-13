@@ -7,7 +7,7 @@ import Cards from "./Cards";
 
 export default function OurStory() {
   return (
-    <div className="story-container" id="our-story">
+    <div className="story-container" id="our-story" data-testid="test-ourstory">
       <Grid container id="our-story">
         <Grid item xs={12} container>
           <Grid item xs={1.5} />
