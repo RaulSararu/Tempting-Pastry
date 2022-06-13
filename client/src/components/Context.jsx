@@ -20,7 +20,7 @@ export default function MyContextProvider({ children }) {
   });
 
 
-  const [payment,setPayment] = useState("")
+  // const [payment, setPayment] = useState("")
 
   const addToCart = (item) => {
     const exist = cart.find((x) => x.id === item.id);
