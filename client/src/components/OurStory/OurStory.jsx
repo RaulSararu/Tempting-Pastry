@@ -3,6 +3,7 @@ import "./style.css";
 import imag1 from "../../assets/images/random/cookies.jpg";
 import imag2 from "../../assets/images/random/tart.jpg";
 import { Grid } from "@mui/material";
+import Cards from "./Cards";
 
 export default function OurStory() {
   return (
@@ -15,29 +16,19 @@ export default function OurStory() {
               <img className="imag1" src={imag1} alt="" />
             </div>
           </Grid>
-      
-          <Grid item xs={5} sx={{margin:'100px 0', textAlign:"center"}}>
+
+          <Grid item xs={5} sx={{ margin: "100px 0", textAlign: "center" }}>
             <h1>Our Story</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-              incidunt facilis cum temporibus minima praesentium libero animi
-              eaque iusto inventore qui hic. Voluptatem quis corporis blanditiis
-              rerum inventore labore, officiis vero eligendi ut tempora sint
-              veniam aspernatur illum? Suscipit molestiae eveniet velit vitae
-              quaerat dolorem excepturi doloribus quasi sapiente ab explicabo
-              voluptatum voluptates distinctio, voluptatibus asperiores numquam
-              pariatur quas cum laborum aperiam eligendi expedita. Itaque
-              reiciendis tenetur eum dolorem alias sit repudiandae obcaecati
-              ipsam rerum culpa, doloribus quam nihil! Provident debitis
-              deserunt, corrupti rem  luptatum voluptates distinctio, voluptatibus asperiores numquam
-              pariatur quas cum laborum aperiam eligendi expedita. Itaque
-              reiciendis tenetur eum dolorem alias sit repudiandae obcaecati
-              ipsam rerum culpa, doloribus quam nihil! Provident debitisquaerat impedit beatae aspernatur libero
-              facilis in, hic, error soluta officiis temporibus qui. Optio,
-              nostrum dolore.
+              Most people know that eating sweets is not the healthiest choice,
+              but new research suggests consuming sweet foods does prompt a
+              person’s brain to form a memory of his or her meal. Researchers
+              found that eating sweets stimulates neurons in the portion of the
+              brain linked to episodic memory, which controls one’s ability to
+              recall a previous experience from a specific place and time.
             </p>
+            <Cards />
           </Grid>
-         
 
           <Grid item xs={2}>
             <div className="second-image">
