@@ -8,6 +8,20 @@ const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 export default function MyContextProvider({ children }) {
   const [cart, setCart] = useState(cartLocalStorage);
 
+  const [postData, setPostData] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    city: "",
+    country: "",
+    zipCode: "",
+    phone: "",
+  });
+
+
+  // const [payment, setPayment] = useState("")
+
   const addToCart = (item) => {
     const exist = cart.find((x) => x.id === item.id);
     if (exist) {
@@ -50,14 +64,16 @@ export default function MyContextProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-    useEffect(() => {
-      axios.get("http:localhost:5000/getuser", { withCredentials: true }).then((res) => {
+  useEffect(() => {
+    axios
+      .get("http:localhost:5000/getuser", { withCredentials: true })
+      .then((res) => {
         console.log(res);
         if (res.data) {
-          setUserObject(res.data); 
+          setUserObject(res.data);
         }
       });
-    }, []);
+  }, []);
 
   return (
     <MyContext.Provider
@@ -72,6 +88,8 @@ export default function MyContextProvider({ children }) {
         totalPrice,
         shippingPrice,
         handleRemove,
+        postData,
+        setPostData,
       }}
     >
       {children}

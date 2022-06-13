@@ -19,7 +19,9 @@ import Main from "./components/Main/Main";
 import ContactLayout from "./components/Layouts/ContactLayout";
 import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
-import Shipping from "./components/Shipping/Shipping";
+import Payment from "./components/Payment/Payment";
+import Confirm from "./components/Confirm/Confirm";
+
 
 const theme = createTheme({
   typography: {
@@ -64,7 +66,9 @@ function App() {
               <Route path="/cart" element={<Cartpage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="*" element={<PageNotFound />} />
-              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/payment" element={<Payment/>} />
+              <Route path="/confirm" element={<Confirm/>} />
+              
 
               <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> 
             </Routes>

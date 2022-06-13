@@ -30,9 +30,9 @@ function sendmail(req, res) {
 
     const mail_options ={
         from: `Tempting-Pastry <${process.env.GOOGLE_USER}>`, 
-        to: userMail, 
+        to: process.env.GOOGLE_USER,//userMail, 
         subject: "A message from Tempting-Pastry", 
-        text:userMessage,
+        text:`${userMail} ${userMessage}`, 
     }
     try {
         transport.sendMail(mail_options, function(error, result){
