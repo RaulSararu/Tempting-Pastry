@@ -47,6 +47,7 @@
 
 .Mail .contact-input {
     border-radius: 5px; 
+    padding: 20px; 
 }
 .Mail form button {
     padding: 15px;

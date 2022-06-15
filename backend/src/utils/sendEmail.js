@@ -9,7 +9,7 @@ const OAuth2_client = new OAuth2(
   process.env.REDIRECT_URI
 );
 OAuth2_client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
-const accessToken = OAuth2_client.getAccessToken();
+const accessToken = OAuth2_client.getAccessToken(); 
 
 async function sendEmail(email, subject, text) {
   console.log("Email is", email.email);
@@ -24,7 +24,8 @@ async function sendEmail(email, subject, text) {
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: accessToken,
+        accessToken: accessToken, 
+        
       },
     });
     await transporter.sendMail({

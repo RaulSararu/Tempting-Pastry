@@ -62,6 +62,30 @@ export default function MyContextProvider({ children }) {
   const [userObject, setUserObject] = useState();
 
   useEffect(() => {
+    const userToken = getCookie("User_Token"); 
+    if(!userToken) return 
+    console.log("userToken", userToken) 
+    const temp= atob(userToken.split(".") [1] )
+    console.log('temp', temp) 
+    const user=JSON.parse(atob(userToken.split(".") [1] )) 
+    console.log('--------------', user) 
+    setUserObject(user) 
+    setCurrentUser({username:user.username, email:user.email, id: user._id})  
+  }, []); 
+
+  function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie);
+    //to be careful
+    const cArr = cDecoded.split("; ");
+    let res;
+    cArr.forEach((val) => {
+      if (val.indexOf(name) === 0) res = val.substring(name.length);
+    });
+    return res;
+  }
+
+  useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
   useEffect(() => {
