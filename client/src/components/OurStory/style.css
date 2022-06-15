@@ -33,10 +33,10 @@
 .second-image {
   position: relative;
   top: 90%;
-  right: 90px;
+  right: 40px;
   overflow: hidden;
   width: 25rem;
-  height: 15rem;
+  height: 15rem; 
 
 }
 

@@ -13,16 +13,16 @@
 .footerMainDiv {
     width: 70%;
     height: 70%;
-    border: red 2px solid;
+    /* border: red 2px solid; */
     display: flex;
     justify-content: center;
-    border-bottom: 3px solid rgb(175, 146, 28);
+    /* border-bottom: 3px solid rgb(175, 146, 28); */
 }
 
 .footerLeft {
     display: flex;
     flex-direction: column;
-    border: 2px orange solid;
+    /* border: 2px orange solid; */
     width: 50%;
 }
 
@@ -30,12 +30,12 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
 }
 
 .footerProgram {
     display: flex;
-    border:2px green solid;
+    /* border:2px green solid; */
     align-items: center;
     height: 50% ;
     margin-top: 30px;
@@ -107,7 +107,7 @@
 .footerMapFullAdress {
     display: flex;
     text-align: center;
-    flex-direction: column;
+    flex-direction: column;  
     margin-left: -100px;
 }
 
