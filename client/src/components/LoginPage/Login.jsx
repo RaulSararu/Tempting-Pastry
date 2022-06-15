@@ -52,8 +52,10 @@ function Auth() {
      const user= res.data.user
       setCurrentUser({username:user.username, email:user.email, id: user._id})
       navigate("/") 
-     } }   
+     }  
+    }  
     ); 
+    setLoginUsername("")
   };
 
  console.log("Current user", currentUser); 
@@ -75,9 +77,9 @@ function Auth() {
       <h1 className="loginTitle">Choose a login Method</h1>
       <div className="wrapper">
         <div className="left">
-          <a href="/auth/google" style={{ textDecoration: "none" }}>
-            <div className="loginButton google" onClick={googleLogin}>
-              <img src={Google} alt="" className="icon" />
+          <a href="http://localhost:5000/auth/google" style={{ textDecoration: "none" }}>
+            <div className="loginButton google">
+              <img src={Google} alt="" className="icon" /> 
               Google
             </div>
           </a>
@@ -88,7 +90,7 @@ function Auth() {
             </div>
           </Link>
           <div className="right">
-            <input
+            <input style={{marginBottom: "10px"}} 
               type="text"
               placeholder="Username"
               onChange={(e) => setLoginUsername(e.target.value)}
@@ -111,28 +113,28 @@ function Auth() {
         {/* <div className="right" onSubmit={handleSubmit}> */}
         <div className="right"> 
           <h3>Register</h3>
-          <input
+          <input style={{marginBottom: "10px"}} 
             type="text"
             placeholder="Username"
             // onChange={(e) => setData({ ...data, username: e.target.value })}
             // value={data.username}
             onChange={(e) => setRegisterUsername(e.target.value)} 
           />
-          <input
+          <input style={{marginBottom: "10px"}} 
             type="text"
             placeholder="Address"
             // onChange={(e) => setData({ ...data, address: e.target.value })}
             // value={data.address}
             onChange={(e) => setRegisterAddress(e.target.value)} 
           />
-          <input
+          <input style={{marginBottom: "10px"}} 
             type="password"
             placeholder="Password"
             // onChange={(e) => setData({ ...data, password: e.target.value })}
             // value={data.password}
             onChange={(e) => setRegisterPassword(e.target.value)}
           />
-          <input
+          <input 
             type="email"
             placeholder="Email"
             // onChange={(e) => setData({ ...data, email: e.target.value })}
