@@ -13,8 +13,10 @@
 .footerMainDiv {
     width: 70%;
     height: 70%;
+    /* border: red 2px solid; */
     display: flex;
     justify-content: center;
+    /* border-bottom: 3px solid rgb(175, 146, 28); */
 }
 
 .footerLeft {
@@ -102,7 +104,7 @@
 .footerMapFullAdress {
     display: flex;
     text-align: center;
-    flex-direction: column;
+    flex-direction: column;  
     margin-left: -100px;
 }
 
@@ -153,10 +155,6 @@
   
   .footerA:hover:after{
     width: 100%;
-  }
-
-  .footerButtonTop {
-     
   }
 
 

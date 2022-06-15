@@ -27,6 +27,7 @@ app.get("/", (req, res) => res.send("Tempting Pastry"))
 
 // MongoConnect
 const connectToDb = require('./src/config/db');
+const  JWT  = require('jsonwebtoken');
 connectToDb()
 // const {application} = require('express'); 
 
@@ -76,7 +77,7 @@ app.use('/confirmEmail', require('./src/routes/confirmEmail'))
 app.use('/auth', require('./src/routes/auth')); 
 app.use('/refresh', require('./src/routes/refresh'));
 
-app.use("/uploads",express.static('./src/uploads'))
+app.use("/uploads",express.static('./src/uploads')) 
 
 //Google strategy
 passport.use(new GoogleStrategy({
@@ -109,11 +110,17 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile'] }))
 
 app.get('/auth/google/callback', 
+  (req, res, next)=>{
+    console.log("Hello Kevin")
+    next() 
+  }, 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log(req.user)   
+    const Token = JWT.sign(req.user.toObject(), process.env.SECRET ) 
     // Successful authentication, redirect home.
-    res.redirect('http://localhost:3000');
-  }) 
+    res.cookie("User_Token", Token).redirect('http://localhost:3000');
+  })  
 
 // // Twitter Strategy
 
@@ -150,7 +157,7 @@ passport.use(new TwitterStrategy({
 app.get('/auth/twitter/callback', 
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
-    // Successful authentication, redirect home.
+    // Successful authentication, redirect home. 
     res.redirect('http://localhost:3000'); 
   });
 
@@ -163,11 +170,11 @@ app.use("/users", require("./src/routes/register"));
  app.get("/logout", (req,res) =>{
    if(req.user){
      req.logout();
-     res.send("Success")
+     res.send("Success")  
    }
  })
-
- app.use('/mail', require('./src/routes/mail'))   
+ 
+ app.use('/mail', require('./src/routes/mail'))    
 
  // Starting the server  
 app.listen("5000", ()=> {

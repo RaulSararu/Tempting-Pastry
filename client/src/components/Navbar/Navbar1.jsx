@@ -42,7 +42,7 @@ const ResponsiveAppBar = () => {
 
   const { currentUser, setCurrentUser } = useContext(MyContext);
   const [isLogIn, setIsLogIn] = useState("Login");
-  const settings = [isLogIn, "Profile"];
+  const settings = currentUser ? ["Profile", "Logout"]: ["Login"] 
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -167,6 +167,7 @@ const ResponsiveAppBar = () => {
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex", justifyContent: "center" },
+              fontFamily:"Courgette", 
             }}
           >
             
@@ -189,7 +190,8 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0, marginLeft: "30px" }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, size:"medium" }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp"  /> 
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
 
@@ -213,11 +215,7 @@ const ResponsiveAppBar = () => {
                 <Link
                   to={`${setting.toLocaleLowerCase()}`}
                   key={setting}
-                  onClick={() => {
-                    setting === "Login"
-                      ? setIsLogIn("Logout")
-                      : setIsLogIn("Login");
-                  }}
+              
                 > 
                   {" "}
                   <MenuItem onClick={handleCloseUserMenu}>
