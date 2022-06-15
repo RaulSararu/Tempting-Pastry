@@ -94,7 +94,7 @@ function Auth() {
               onChange={(e) => setLoginUsername(e.target.value)}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
