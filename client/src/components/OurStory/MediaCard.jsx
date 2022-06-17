@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 export default function MediaCard({ image, title, description, github, linkedin }) {
   const classes = useStyles();
   return (
-    <Card className={classes.root} sx={{ height: "100%", width: "100%" }}>
+    <Card className={classes.root} sx={{ height: "100%", width: "100%" }} data-testid="test-mediacard">
       <CardActionArea>
         <CardMedia
           className={collapseClasses.media}
