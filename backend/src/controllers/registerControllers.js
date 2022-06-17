@@ -1,6 +1,7 @@
 const User = require("../models/User")
 const passport = require("passport");
 const bcrypt = require("bcryptjs"); 
+const crypto = require('crypto');
 const Token = require("../models/Token");
 const sendEmail = require("../utils/sendEmail");
 
@@ -44,7 +45,15 @@ exports.Register= async (req,res) => {
         password: hashedPassword,
       });
       await newUser.save(); 
-      sendEmail(newUser, 'confirmation email')   
+      newUser.token= await newUser.generateToken("1d")
+      await newUser.save() 
+      
+      // const token = await new Token({
+      //   userId: newUser._id,
+      //   token: crypto.randomBytes(32).toString("hex"),
+      // }).save();
+      const url = `${process.env.BASE_URL}/emailconfirm/${newUser.token}`; 
+      sendEmail(newUser, 'confirmation email', url)   
       res.send({success:true}); 
 
     } catch (error) {

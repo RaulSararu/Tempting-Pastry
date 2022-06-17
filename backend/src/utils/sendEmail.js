@@ -1,6 +1,7 @@
 const mailer = require("nodemailer");
 require("dotenv").config();
 const { google } = require("googleapis");
+const {User, validate} = require('../models/User') 
 
 const OAuth2 = google.auth.OAuth2;
 const OAuth2_client = new OAuth2(
@@ -11,10 +12,11 @@ const OAuth2_client = new OAuth2(
 OAuth2_client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 const accessToken = OAuth2_client.getAccessToken(); 
 
+
 async function sendEmail(email, subject, text) {
-  console.log("Email is", email.email);
-  console.log("Subject is", subject);
- 
+   console.log("Email is", email.email);
+   console.log("Subject is", subject); 
+
   try {
     const transporter = mailer.createTransport({
       service: "gmail",
@@ -33,6 +35,17 @@ async function sendEmail(email, subject, text) {
       from: process.env.GOOGLE_USER,  
       subject: subject,
       html: `<a href="${text}"> Please confirm your email</a>`,
+        // html:`
+        // <h3> Hello ${User.username} </h3>
+        // <p>Thank you for registering in our App.
+        // Just one more step...
+        // <p>To activate your account please follow this link: 
+        // <a target="_" href="${process.env.BASE_URL}/../../../EmailConfirm${hash}">${process.env.DOMAIN}/activate </a></p>
+        // <p>Cheers</p>
+        // <p>Your Tempting Pastry</p>
+        // </p>
+        // `, 
+
     });
     console.log("Email send successfully");
   } catch (error) {

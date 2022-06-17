@@ -10,7 +10,7 @@ const tokenSchema = new Schema({
         unique: true,
     },
     token: {type: String, required: true},
-    createdAt:{ type: Date, default: Date.now, express:3000},
+    createdAt:{ type: Date, default: Date.now, express:3600},
 });
 
 module.exports = mongoose.model("token", tokenSchema) 

@@ -6,12 +6,12 @@ import axios from 'axios';
 
 const EmailConfirm = () =>{
     const [validUrl, setValidUrl]= useState(false);
-    const param= useParams();
+    const {token} = useParams();
 
     useEffect(() =>{
         const verifyEmailUrl = async()=>{ 
             try {
-                const url=`http://localhost:5000/api/users${param.id}/verify/${param.token}`
+                const url=`http://localhost:5000/confirmemail/${token}`  
                 const{data} = await axios.get(url) 
                 console.log(data);
                 setValidUrl(true)
@@ -21,7 +21,7 @@ const EmailConfirm = () =>{
             }
         }; 
         verifyEmailUrl()
-    }, [param]) 
+    }, []) 
     return (
         <Fragment>
             {validUrl ?(
