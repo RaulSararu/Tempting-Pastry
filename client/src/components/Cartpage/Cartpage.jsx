@@ -12,7 +12,7 @@ export default function Cartpage() {
   return (
     <div className="Cartpage">
       <Grid container>
-        <Grid item xs={2} />
+        <Grid item xs={3} />
         <Grid
           item
           xs={5}
