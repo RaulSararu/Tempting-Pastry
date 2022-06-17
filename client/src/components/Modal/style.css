@@ -30,6 +30,7 @@
 
 .Modal .cartItem {
   margin-bottom: 30px;
+  
 }
 
 .Modal .cart-container {
@@ -40,14 +41,14 @@
   height: 140px;
   background-color: transparent;
   border-bottom: 1px solid rgba(128, 128, 128, 0.397);
+  font-family: "Courgette";
+  color: rgb(100, 100, 100);
 }
 
 .Modal .empty {
   text-align: center;
   padding: 30px;
 }
-
-
 
 .Modal .cart-container div {
   margin: 0;
@@ -77,7 +78,12 @@
   text-align: center;
   width: 80px;
   font-size: 0.9rem;
-  /* background-color: aqua; */
-  
+ 
+}
 
+
+.col-12 {
+  font-size: 0.8rem;
+  color: rgb(34, 27, 80);
+  
 }

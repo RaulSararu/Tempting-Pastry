@@ -61,7 +61,7 @@ export default function Modal({ topRightModal, toggleShow, setTopRightModal }) {
                       <MDBRow>
                         <div className="cartItem">
                           {cart.map((item) => (
-                            <div className="cart-container">
+                            <div key={item.id} className="cart-container">
                               <div className="imageandname">
                                 <div className="image">
                                   <img src={item.image} alt="" />

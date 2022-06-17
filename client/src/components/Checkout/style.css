@@ -83,6 +83,14 @@ form input:not(.name) {
   padding: 50px 0 70px;
   display: flex;
   flex-direction: column;
+  color: rgb(34, 27, 80);
+  font-size: 0.9rem;
+}
+
+
+.price-devision span {
+  font-family: "Courgette";
+  
 }
 
 .price-box {

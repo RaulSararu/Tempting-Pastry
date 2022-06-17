@@ -180,7 +180,7 @@ const ResponsiveAppBar = () => {
             </ul>
           </Box>
 
-          <Box sx={{ marginLeft: "auto" }} variant="contained">
+          <Box sx={{ marginLeft: "auto" ,cursor:"pointer" }} variant="contained">
          
             <ShoppingCartOutlinedIcon onClick={toggleShow} sx={{ fontSize: 30, color: "#fffbe6" }} />{cart.length}
        
