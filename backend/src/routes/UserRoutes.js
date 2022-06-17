@@ -5,9 +5,10 @@ const multer = require("multer")
 const upload = multer({dest: "./src/uploads"})
 
 router.patch('/profile', upload.single("image"),userController.Profile)
-
 router.get('/verification', userController.Verification)
-
 router.post('/changePassword', userController.changePassword) 
+
+//-----------
+router.post("./profile", userController.Profile) 
 
 module.exports = router  

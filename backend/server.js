@@ -72,10 +72,12 @@ require('./src/config/passportConfig')(passport);
 
 app.use('/register', require('./src/routes/register'))
 app.use('/login', require('./src/routes/login')) 
-app.use('/logout', require('./src/routes/logout')) 
-app.use('/confirmEmail', require('./src/routes/confirmEmail'))
+app.use('/logout', require('./src/routes/logout'))  
+app.use('/confirmemail', require('./src/routes/confirmEmail')) 
 app.use('/auth', require('./src/routes/auth')); 
 app.use('/refresh', require('./src/routes/refresh'));
+
+
 
 app.use("/uploads",express.static('./src/uploads')) 
 
@@ -111,7 +113,6 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', 
   (req, res, next)=>{
-    console.log("Hello Kevin")
     next() 
   }, 
   passport.authenticate('google', { failureRedirect: '/login' }),
