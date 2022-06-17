@@ -19,11 +19,11 @@ export default function Checkout() {
           <Grid item xs={8} container>
             <Grid item xs={3} />
             <Grid item xs={8} sx={{ padding: "30px" }}>
-              <Typography variant="h5" mt={2}>
                 <Box sx={{ textTransform: "uppercase" }}>
+              <Typography variant="h5" mt={2}>
                   Contact information
-                </Box>
               </Typography>
+                </Box>
               <Box>
                 <p>
                   already have an account?{" "}
@@ -126,8 +126,8 @@ export default function Checkout() {
             <Grid item xs={1} />
             <Grid item xs={10} container sx={{ margin: "30px 0" }}>
               {cart.map((item) => (
-                <Grid item xs={12}>
-                  <div className="flex1">
+                <Grid key={item.id} item xs={12} sx={{fontFamily: "Courgette"}}>
+                  <div  className="flex1">
                     <div className="box-qty">{item.qty}</div>
                     <div className="image">
                       <img src={item.image} alt="" />

@@ -16,28 +16,30 @@ export default function Cartpage() {
         <Grid
           item
           xs={5}
-          sx={{
-            // backgroundColor: "lightgrey",
-            // borderRight: "1px solid grey",
-          }}
+          sx={
+            {
+              // backgroundColor: "lightgrey",
+              // borderRight: "1px solid grey",
+            }
+          }
         >
           <Typography pb={4} variant="h4">
             CART
           </Typography>
           <Grid item xs={12} container>
-            <Grid item xs={7} >
+            <Grid item xs={7}>
               Item
             </Grid>
-            <Grid item xs={4} >
+            <Grid item xs={4}>
               QTY
             </Grid>
-            <Grid item xs={1} >
+            <Grid item xs={1}>
               Price
             </Grid>
           </Grid>
 
           {cart.map((item) => (
-            <div className="cart-container">
+            <div key={item.id} className="cart-container">
               <div className="imageandname">
                 <div className="image">
                   <img src={item.image} alt="" />
@@ -54,7 +56,11 @@ export default function Cartpage() {
                 <span>{item.qty * item.price} €</span>
                 <CloseIcon
                   onClick={() => handleRemove(item)}
-                  sx={{ marginLeft: "10px", fontSize:"1.2rem", cursor:"pointer" }}
+                  sx={{
+                    marginLeft: "10px",
+                    fontSize: "1.2rem",
+                    cursor: "pointer",
+                  }}
                 />
               </div>
             </div>
@@ -62,16 +68,18 @@ export default function Cartpage() {
 
           {}
         </Grid>
-        <Grid item xs={3} container >
+        <Grid item xs={3} container>
           <Grid item xs={1} />
           <Grid item xs={11}>
             <Typography pb={4} variant="h4">
               ORDER SUMMARY
             </Typography>
 
-            <p>shipping and taxes calculated at checkout</p>
+            <p style={{color: "rgb(34, 27, 80)" }}>
+              shipping and taxes calculated at checkout
+            </p>
             <hr />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", color: "rgb(34, 27, 80)" }}>
               <p>subtotal</p>
               <span className="total-price">{itemsPrice} €</span>
             </div>

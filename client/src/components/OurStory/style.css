@@ -3,7 +3,7 @@
   min-height: 70vh;
   background-color: rgb(34, 27, 80);
   color:rgb(255, 251, 230) ;
-  margin-bottom: 70px;
+  margin-bottom: 170px;
 
 }
 
@@ -32,11 +32,16 @@
 
 .second-image {
   position: relative;
-  top: 90%;
+  top: 75%;
   right: 40px;
   overflow: hidden;
   width: 25rem;
   height: 15rem; 
 
+}
+
+
+h1 {
+  padding-top: 60px;
 }
 

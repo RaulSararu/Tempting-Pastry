@@ -19,8 +19,7 @@ export default function MyContextProvider({ children }) {
     phone: "",
   });
 
-
-  // const [payment, setPayment] = useState("")
+  const [payment, setPayment] = useState("");
 
   const addToCart = (item) => {
     const exist = cart.find((x) => x.id === item.id);
@@ -62,16 +61,20 @@ export default function MyContextProvider({ children }) {
   const [userObject, setUserObject] = useState();
 
   useEffect(() => {
-    const userToken = getCookie("User_Token"); 
-    if(!userToken) return 
-    console.log("userToken", userToken) 
-    const temp= atob(userToken.split(".") [1] )
-    console.log('temp', temp) 
-    const user=JSON.parse(atob(userToken.split(".") [1] )) 
-    console.log('--------------', user) 
-    setUserObject(user) 
-    setCurrentUser({username:user.username, email:user.email, id: user._id})  
-  }, []); 
+    const userToken = getCookie("User_Token");
+    if (!userToken) return;
+    console.log("userToken", userToken);
+    const temp = atob(userToken.split(".")[1]);
+    console.log("temp", temp);
+    const user = JSON.parse(atob(userToken.split(".")[1]));
+    console.log("--------------", user);
+    setUserObject(user);
+    setCurrentUser({
+      username: user.username,
+      email: user.email,
+      id: user._id,
+    });
+  }, []);
 
   function getCookie(cName) {
     const name = cName + "=";
@@ -114,6 +117,8 @@ export default function MyContextProvider({ children }) {
         handleRemove,
         postData,
         setPostData,
+        payment,
+        setPayment,
       }}
     >
       {children}

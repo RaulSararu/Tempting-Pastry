@@ -20,7 +20,7 @@ import visa from "../../assets/images/bank/visa.png";
 import { Link } from "react-router-dom";
 
 export default function Payment() {
-  const {shippingPrice, totalPrice } = useContext(MyContext);
+  const {shippingPrice, totalPrice,setPayment,payment } = useContext(MyContext);
   return (
     <div className="Payment">
       <Grid container spacing={2}>
@@ -35,12 +35,12 @@ export default function Payment() {
               <FormControl>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="direct"
-                  name="radio-buttons-group" onChange={(a,b) => console.log('test',  a ,b)}
+                  defaultValue="Direct Debit"
+                  name="radio-buttons-group" onChange={(a,b) => setPayment(b)}
                 >
                   <div className="bank-box">
                     <FormControlLabel     
-                      value="direct"
+                      value="Direct Debit"
                       control={<Radio />}
                       label="Direct Debit "
                     />
@@ -51,7 +51,7 @@ export default function Payment() {
 
                   <div className="bank-box">
                     <FormControlLabel
-                      value="credit"
+                      value="Credit / Debit Card "
                       control={<Radio />}
                       label="Credit / Debit Card "
                       sx={{marginRight:"70px"}}
@@ -74,7 +74,7 @@ export default function Payment() {
 
                   <div className="bank-box">
                     <FormControlLabel
-                      value="paypal"
+                      value="PayPal"
                       control={<Radio />}
                       label="PayPal"
                     />
@@ -84,7 +84,7 @@ export default function Payment() {
                   </div>
                   <div className="bank-box">
                     <FormControlLabel
-                      value="pre-payment"
+                      value="Pre-payment (Bank Transfer)"
                       control={<Radio />}
                       label="Pre-payment (Bank Transfer)"
                     />
@@ -96,7 +96,7 @@ export default function Payment() {
               </FormControl>
             </Grid>
 
-            <Grid className="box" item xs={5} sx={{ backgroundColor: "rgb(255, 251, 230)" }} >
+            <Grid className="box" item xs={5} sx={{ backgroundColor: "rgb(255, 251, 230)" , fontFamily: "Courgette" }} >
               <div className="box-delivery">
               <p>Delivery</p>
               <span>{shippingPrice} €</span>
