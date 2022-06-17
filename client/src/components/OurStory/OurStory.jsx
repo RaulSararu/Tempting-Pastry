@@ -17,7 +17,7 @@ export default function OurStory() {
             </div>
           </Grid>
 
-          <Grid item xs={5} sx={{ margin: "100px 0", textAlign: "center" }}>
+          <Grid item xs={5} sx={{ margin: "100px 0", textAlign: "center", fontFamily:"Courgette" }}>
             <h1>Our Story</h1>
             <p>
               Most people know that eating sweets is not the healthiest choice,

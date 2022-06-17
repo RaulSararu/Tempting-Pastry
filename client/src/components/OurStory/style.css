@@ -3,6 +3,7 @@
   min-height: 70vh;
   background-color: rgb(34, 27, 80);
   color:rgb(255, 251, 230) ;
+
   margin-bottom: 150px;
 
 }
@@ -38,5 +39,10 @@
   width: 25rem;
   height: 15rem; 
 
+}
+
+
+h1 {
+  padding-top: 60px;
 }
 

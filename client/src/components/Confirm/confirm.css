@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+  font-family: "Courgette";
 }
 
 .Confirm .image {
@@ -57,7 +58,20 @@
     justify-content:space-between;
 }
 
+.box-flex span {
+  font-family: "Courgette";
+}
+
 .address-box {
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 0.7;
+  font-size: 0.9rem;
+}
+
+.payment {
+  padding-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }

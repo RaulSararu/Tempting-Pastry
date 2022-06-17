@@ -10,9 +10,9 @@ import Google from "./components/LoginPage/Google";
 import Navbar1 from "./components/Navbar/Navbar1";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React, { useContext } from "react";
-import Context, {MyContext} from "./components/Context";
+import Context, { MyContext } from "./components/Context";
 import Cartpage from "./components/Cartpage/Cartpage";
-import EmailConfirm from "./components/EmailConfirm/EmailConfirm"; 
+import EmailConfirm from "./components/EmailConfirm/EmailConfirm";
 import Mail from "./components/Mail/Mail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Main from "./components/Main/Main";
@@ -21,7 +21,6 @@ import MainLayout from "./components/Layouts/MainLayout";
 import LoginLayout from "./components/Layouts/LoginLayout";
 import Payment from "./components/Payment/Payment";
 import Confirm from "./components/Confirm/Confirm";
-
 
 const theme = createTheme({
   typography: {
@@ -46,18 +45,15 @@ function App() {
           <BrowserRouter>
             <ScrollToTop />
             <Navbar1 />
-
             <Routes>
-              <Route element = {< ContactLayout/>}>
+              <Route element={<ContactLayout />}>
                 {/* Top */}
                 {/* Main */}
                 <Route path="/sendmail" element={<Mail />} />
               </Route>
-
               <Route element={<MainLayout />}>
                 <Route path="/" element={<Products />} />
               </Route>
-
               <Route element={<LoginLayout />}>
                 <Route path="/login" element={<Login />} />
               </Route>
@@ -68,11 +64,9 @@ function App() {
               <Route path="/cart" element={<Cartpage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="*" element={<PageNotFound />} />
-              <Route path="/payment" element={<Payment/>} />
-              <Route path="/confirm" element={<Confirm/>} />
-              
-
-              <Route path="/emailconfirm/:token" element={<EmailConfirm />} /> 
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/confirm" element={<Confirm />} />
+              <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
             </Routes>
           </BrowserRouter>
         </ThemeProvider>

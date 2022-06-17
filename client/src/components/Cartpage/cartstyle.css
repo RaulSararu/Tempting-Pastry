@@ -38,6 +38,7 @@
   height: 140px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.397);
   margin-bottom: 30px;
+  font-family: "Courgette";
 }
 
 .Cartpage .imageandname {
@@ -64,6 +65,10 @@
   text-align: end;
   width: 80px;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  
 }
 
 .Cartpage .total-price {
