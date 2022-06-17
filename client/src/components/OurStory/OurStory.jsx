@@ -8,12 +8,12 @@ import Cards from "./Cards";
 export default function OurStory() {
   return (
     <div className="story-container" id="our-story" data-testid="test-ourstory">
-      <Grid container id="our-story">
+      <Grid container>
         <Grid item xs={12} container>
           <Grid item xs={1.5} />
           <Grid item xs={2}>
             <div className="first-img">
-              <img className="imag1" src={imag1} alt="" />
+              <img className="imag1" src={imag1} alt="img1" />
             </div>
           </Grid>
 
@@ -32,7 +32,7 @@ export default function OurStory() {
 
           <Grid item xs={2}>
             <div className="second-image">
-              <img className="imag2" src={imag2} alt="" />
+              <img className="imag2" src={imag2} alt="img2" />
             </div>
           </Grid>
           <Grid item xs={1.5} />
